@@ -27,6 +27,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="Sprite.ts" />
     <TypeScriptCompile Include="Renderer.ts" />
+    <TypeScriptCompile Include="Texture.ts" />
+    <TypeScriptCompile Include="Vector2.ts" />
+    <TypeScriptCompile Include="Vector2Mutator.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
