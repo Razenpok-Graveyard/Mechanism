@@ -25,11 +25,14 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="RenderObject.ts" />
+    <TypeScriptCompile Include="Mechanism.ts" />
     <TypeScriptCompile Include="Sprite.ts" />
     <TypeScriptCompile Include="Renderer.ts" />
     <TypeScriptCompile Include="Texture.ts" />
     <TypeScriptCompile Include="Vector2.ts" />
     <TypeScriptCompile Include="Vector2Mutator.ts" />
+    <TypeScriptCompile Include="Widget.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -72,7 +75,7 @@
     <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
-    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptNoImplicitAny>True</TypeScriptNoImplicitAny>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
     <TypeScriptOutFile>../Mechanism.Tests/wwwroot/lib/mechanism.js</TypeScriptOutFile>
     <TypeScriptOutDir>

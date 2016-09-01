@@ -14,9 +14,22 @@
         this.context = canvas.getContext("2d");
     }
 
-    render(sprite: Sprite): void {
+    render(renderObject: RenderObject) {
         this.flush();
-        this.context.drawImage(sprite.texture.source, sprite.position.x, sprite.position.y);
+        renderObject.render(this);
+    }
+
+    renderTexture(texture: Texture, x: number, y: number): void {
+        this.context.drawImage(texture.source, x, y);
+    }
+
+    translate(x: number, y: number) {
+        this.context.translate(x, y);
+    }
+
+    rotate(angle: number) {
+        const radians = (Math.PI / 180) * angle;
+        this.context.rotate(radians);
     }
 
     private flush(): void {
