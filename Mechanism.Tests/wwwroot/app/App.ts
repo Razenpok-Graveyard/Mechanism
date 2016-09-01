@@ -1,4 +1,6 @@
-﻿var renderer: Renderer;
+﻿Mechanism.helloWorld();
+
+var renderer: Renderer;
 var sprite = Sprite.fromImage("assets/CaveManMenu0.png");
 const speed = 5;
 var velocity = new Vector2();
