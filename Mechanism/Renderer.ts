@@ -2,17 +2,29 @@
     view: HTMLCanvasElement;
     backgroundColor: Color;
     private context: CanvasRenderingContext2D;
-    private width: number;
-    private height: number;
 
     constructor(width: number, height: number) {
-        this.width = width;
-        this.height = height;
         const canvas = document.createElement("canvas");
-        canvas.height = height;
-        canvas.width = width;
         this.view = canvas;
         this.context = canvas.getContext("2d");
+        this.width = width;
+        this.height = height;
+    }
+
+    get width(): number {
+        return this.view.width;
+    }
+
+    set width(value: number) {
+        this.view.width = value;
+    }
+
+    get height(): number {
+        return this.view.height;
+    }
+
+    set height(value: number) {
+        this.view.height = value;
     }
 
     render(renderObject: RenderObject) {
@@ -33,7 +45,7 @@
         this.context.rotate(radians);
     }
 
-    private flush(): void {
+    flush(): void {
         this.context.save();
         if (this.backgroundColor) {
             this.context.fillStyle = this.backgroundColor.toHex();

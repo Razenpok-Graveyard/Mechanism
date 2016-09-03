@@ -25,6 +25,8 @@
         this.fps = (1 / delta) * 1000;
         if (this.root)
             this.renderer.render(this.root);
+        else
+            this.renderer.flush();
         this.time = time;
         window.requestAnimationFrame((time) => this.render(time));
     }
