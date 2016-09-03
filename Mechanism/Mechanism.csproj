@@ -25,6 +25,7 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Application.ts" />
     <TypeScriptCompile Include="Color.ts" />
     <TypeScriptCompile Include="RenderObject.ts" />
     <TypeScriptCompile Include="Mechanism.ts" />
