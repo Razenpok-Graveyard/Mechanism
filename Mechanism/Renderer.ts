@@ -1,6 +1,8 @@
-﻿class Renderer {
+﻿/// <reference path="VectorGraphics.ts"/>
+class Renderer {
     view: HTMLCanvasElement;
     backgroundColor: Color;
+    vectorGraphics: VectorGraphics;
     private context: CanvasRenderingContext2D;
 
     constructor(width: number, height: number) {
@@ -9,10 +11,11 @@
         this.context = canvas.getContext("2d");
         this.width = width;
         this.height = height;
+        this.vectorGraphics = new VectorGraphics(this.context);
     }
 
     get width(): number {
-        return this.view.width;
+        return this.view.clientWidth;
     }
 
     set width(value: number) {
@@ -20,7 +23,7 @@
     }
 
     get height(): number {
-        return this.view.height;
+        return this.view.clientHeight;
     }
 
     set height(value: number) {
@@ -43,6 +46,18 @@
     rotate(angle: number) {
         const radians = (Math.PI / 180) * angle;
         this.context.rotate(radians);
+    }
+
+    scale(x: number, y: number) {
+        this.context.scale(x, y);
+    }
+
+    save() {
+        this.context.save();
+    }
+
+    restore() {
+        this.context.restore();
     }
 
     flush(): void {

@@ -16,4 +16,12 @@ class Sprite extends Widget {
         renderer.renderTexture(this.texture, this.position.x, this.position.y);
         super.render(renderer);
     }
+
+    get width(): number {
+        return this.texture.width;
+    }
+
+    get height(): number {
+        return this.texture.height;
+    }
 }

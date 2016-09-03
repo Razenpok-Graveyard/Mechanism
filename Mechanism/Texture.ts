@@ -11,4 +11,12 @@ class Texture {
         image.src = url;
         return texture;
     }
+
+    get width(): number {
+        return this.source.width;
+    }
+
+    get height(): number {
+        return this.source.height;
+    }
 }
