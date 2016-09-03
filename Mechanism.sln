@@ -8,6 +8,9 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mechanism.Tests", "Mechanism.Tests\Mechanism.Tests.xproj", "{7D73CEFB-23BD-4045-8498-54AF15C98235}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Workbench", "Workbench\Workbench.xproj", "{015F0CA3-47DC-450F-96A2-77790CE55E87}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8AF896DC-905B-43DF-A505-D6A1AF3D18A0} = {8AF896DC-905B-43DF-A505-D6A1AF3D18A0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
