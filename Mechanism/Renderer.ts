@@ -1,5 +1,6 @@
 ﻿class Renderer {
     view: HTMLCanvasElement;
+    backgroundColor: Color;
     private context: CanvasRenderingContext2D;
     private width: number;
     private height: number;
@@ -33,6 +34,13 @@
     }
 
     private flush(): void {
-        this.context.clearRect(0, 0, this.width, this.height);
+        this.context.save();
+        if (this.backgroundColor) {
+            this.context.fillStyle = this.backgroundColor.toHex();
+            this.context.fillRect(0, 0, this.width, this.height);
+        } else {
+            this.context.clearRect(0, 0, this.width, this.height);
+        }
+        this.context.restore();
     }
 }
