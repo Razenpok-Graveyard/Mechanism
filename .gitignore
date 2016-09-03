@@ -246,3 +246,5 @@ ModelManifest.xml
 Mechanism.Tests/wwwroot/lib/
 Mechanism.Tests/wwwroot/app/App.js
 Mechanism.Tests/project.fragment.lock.json
+Workbench/wwwroot/app/
+Workbench/wwwroot/lib/
