@@ -23,10 +23,9 @@
     render(time: number) {
         const delta = time - this.time;
         this.fps = (1 / delta) * 1000;
+        this.renderer.flush();
         if (this.root)
             this.renderer.render(this.root);
-        else
-            this.renderer.flush();
         this.time = time;
         window.requestAnimationFrame((time) => this.render(time));
     }

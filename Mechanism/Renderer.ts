@@ -31,8 +31,9 @@ class Renderer {
     }
 
     render(renderObject: RenderObject) {
-        this.flush();
+        renderObject.beforeRender(this);
         renderObject.render(this);
+        renderObject.afterRender(this);
     }
 
     renderTexture(texture: Texture, x: number, y: number): void {
@@ -58,6 +59,12 @@ class Renderer {
 
     restore() {
         this.context.restore();
+    }
+
+    clip(x: number, y: number, width: number, height: number) {
+        const path = new Path2D();
+        path.rect(x, y, width, height);
+        this.context.clip(path);
     }
 
     flush(): void {

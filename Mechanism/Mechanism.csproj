@@ -27,6 +27,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Application.ts" />
     <TypeScriptCompile Include="Color.ts" />
+    <TypeScriptCompile Include="Typings\Path2D.d.ts" />
     <TypeScriptCompile Include="RenderObject.ts" />
     <TypeScriptCompile Include="Mechanism.ts" />
     <TypeScriptCompile Include="Sprite.ts" />

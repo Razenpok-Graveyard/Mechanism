@@ -17,7 +17,11 @@
 
     render(renderer: Renderer) {
         for (let child of this.children) {
-            child.render(renderer);
+            renderer.render(child);
         }
     }
+
+    beforeRender(renderer: Renderer) { }
+
+    afterRender(renderer: Renderer) { }
 }

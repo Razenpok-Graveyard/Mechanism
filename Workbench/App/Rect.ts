@@ -1,4 +1,5 @@
-﻿class Rect extends Widget {
+﻿/// <reference path="LayoutElement.ts"/>
+class Rect extends Widget {
     color: Color;
 
     constructor(color: Color) {
@@ -10,6 +11,4 @@
         renderer.vectorGraphics.drawRect(this.color, 0, 0, 100, 100);
         super.render(renderer);
     }
-
-
 }

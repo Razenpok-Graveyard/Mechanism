@@ -7,12 +7,27 @@ class Vector2 {
         this.y = y;
     }
 
-    add(value: Vector2): Vector2 {
-        return new Vector2(this.x + value.x, this.y + value.y);
+    add(value: Vector2 | number): Vector2 {
+        return this.combine(value, (lhs, rhs) => lhs + rhs);
     }
 
-    subtract(value: Vector2): Vector2 {
-        return new Vector2(this.x - value.x, this.y - value.y);
+    subtract(value: Vector2 | number): Vector2 {
+        return this.combine(value, (lhs, rhs) => lhs - rhs);
+    }
+
+    multiply(value: Vector2 | number): Vector2 {
+        return this.combine(value, (lhs, rhs) => lhs * rhs);
+    }
+
+    divide(value: Vector2 | number): Vector2 {
+        return this.combine(value, (lhs, rhs) => lhs / rhs);
+    }
+
+    private combine(value: Vector2 | number, func: (lhs: number, rhs: number) => number): Vector2 {
+        if (value instanceof Vector2)
+            return new Vector2(func(this.x, value.x), func(this.y, value.y));
+        else
+            return new Vector2(func(this.x, value), func(this.y, value));
     }
 
     clone(): Vector2 {

@@ -1,5 +1,9 @@
-﻿class RelativeLinearLayout extends Widget {
+﻿/// <reference path="Orientation.ts"/>
+/// <reference path="IRelativeLinearLayoutElement.ts"/>
+class RelativeLinearLayout extends Widget {
     private orientation: Orientation;
+    private currentWidth: number;
+    private currentHeight: number;
 
     constructor(orientation: Orientation) {
         super();
@@ -8,11 +12,11 @@
 
     render(renderer: Renderer): void {
         const parent = this.parent;
-        let totalWidth = renderer.width;
-        let totalHeight = renderer.height;
+        this.currentWidth = renderer.width;
+        this.currentHeight = renderer.height;
         if (parent && parent instanceof Widget) {
-            totalWidth = parent.width;
-            totalHeight = parent.height;
+            this.currentWidth = parent.width;
+            this.currentHeight = parent.height;
         }
         renderer.save();
         // TODO: cache results
@@ -22,11 +26,11 @@
             let scaledSide: number;
             switch (this.orientation) {
             case Orientation.Horizontal:
-                scale = (element.sizeFactor * totalWidth) / element.width;
+                scale = (element.sizeFactor * this.currentWidth) / element.width;
                 scaledSide = scale * element.width;
                 break;
             case Orientation.Vertical:
-                scale = (element.sizeFactor * totalHeight) / element.height;
+                scale = (element.sizeFactor * this.currentHeight) / element.height;
                 scaledSide = scale * element.height;
                 break;
             default:
@@ -54,8 +58,12 @@
         super.addChild(container);
         return container as IRelativeLinearLayoutElement;
     }
-}
 
-interface IRelativeLinearLayoutElement extends Widget {
-    sizeFactor: number;
+    get width(): number {
+        return this.currentWidth;
+    }
+
+    get height(): number {
+        return this.currentHeight;
+    }
 }

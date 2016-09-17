@@ -2,14 +2,19 @@
 class Widget extends RenderObject {
     children: Widget[] = [];
     position = new Vector2();
-    scale = new Vector2();
+    scale = new Vector2(1, 1);
     rotation = 0;
+    pivot = new Vector2(0.5, 0.5);
 
-    render(renderer: Renderer): void {
+    beforeRender(renderer: Renderer): void {
         renderer.save();
-        renderer.translate(this.position.x, this.position.y);
+        const offset = this.position.subtract(this.pivot.multiply(new Vector2(this.width, this.height)));
+        renderer.translate(offset.x, offset.y);
         renderer.rotate(this.rotation);
-        super.render(renderer);
+        renderer.scale(this.scale.x, this.scale.y);
+    }
+
+    afterRender(renderer: Renderer): void {
         renderer.restore();
     }
 
