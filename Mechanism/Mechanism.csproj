@@ -25,9 +25,19 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Animations\Animation.ts" />
+    <TypeScriptCompile Include="Animations\AnimationCollection.ts" />
+    <TypeScriptCompile Include="Animations\Animator.ts" />
+    <TypeScriptCompile Include="Animations\Interpolation.ts" />
+    <TypeScriptCompile Include="Animations\PropertyAnimatorFactories.ts" />
     <TypeScriptCompile Include="Application.ts" />
     <TypeScriptCompile Include="Color.ts" />
+    <TypeScriptCompile Include="Animations\GenericAnimator.ts" />
+    <TypeScriptCompile Include="Animations\KeyFrame.ts" />
+    <TypeScriptCompile Include="Linq.ts" />
     <TypeScriptCompile Include="Math.ts" />
+    <TypeScriptCompile Include="Animations\PropertyAnimatorFactory.ts" />
+    <TypeScriptCompile Include="NotImplementedError.ts" />
     <TypeScriptCompile Include="Typings\Path2D.d.ts" />
     <TypeScriptCompile Include="RenderObject.ts" />
     <TypeScriptCompile Include="Mechanism.ts" />

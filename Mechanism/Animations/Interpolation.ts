@@ -1,0 +1,4 @@
+﻿enum Interpolation {
+    None,
+    Linear
+}

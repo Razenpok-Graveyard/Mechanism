@@ -1,9 +1,10 @@
-﻿class Application {
+﻿/// <reference path="Renderer.ts"/>
+class Application {
     view: HTMLDivElement;
     renderer: Renderer;
     root: RenderObject;
     fps = 0;
-    private time = 0;
+    private time: number;
 
     constructor(width: number = 800, height: number = 600) {
         this.view = document.createElement("div");
@@ -12,20 +13,19 @@
     }
 
     run(): void {
-        window.requestAnimationFrame((time) => this.firstRender(time));
-    }
-
-    private firstRender(time: number) {
-        this.time = time;
-        this.render(time);
+        window.requestAnimationFrame((time) => this.render(time));
     }
 
     render(time: number) {
+        if (!this.time)
+            this.time = time;
         const delta = time - this.time;
         this.fps = (1 / delta) * 1000;
         this.renderer.flush();
-        if (this.root)
+        if (this.root) {
+            this.root.update();
             this.renderer.render(this.root);
+        }
         this.time = time;
         window.requestAnimationFrame((time) => this.render(time));
     }

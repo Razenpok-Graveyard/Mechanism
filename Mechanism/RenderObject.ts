@@ -1,6 +1,10 @@
-﻿class RenderObject {
+﻿/// <reference path="Animations/AnimationCollection.ts"/>
+/// <reference path="NotImplementedError.ts"/>
+class RenderObject {
     children: RenderObject[] = [];
     parent: RenderObject;
+    animations = new AnimationCollection();
+    private currentAnimation: Animation;
 
     addChild(container: RenderObject): void {
         this.children.push(container);
@@ -24,4 +28,17 @@
     beforeRender(renderer: Renderer) { }
 
     afterRender(renderer: Renderer) { }
+
+    update() {
+        this.currentAnimation.advance(1, this);
+    }
+
+    runAnimation(name: string) {
+        this.currentAnimation = this.animations.get(name);
+        this.currentAnimation.run();
+    }
+
+    runChildAnimation(name: string) {
+        throw new NotImplementedError();
+    }
 }

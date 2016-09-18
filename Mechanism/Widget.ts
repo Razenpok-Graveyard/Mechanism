@@ -1,10 +1,11 @@
 ﻿///<reference path="RenderObject.ts"/>
+///<reference path="Animations/PropertyAnimatorFactories.ts"/>
 class Widget extends RenderObject {
     children: Widget[] = [];
-    position = new Vector2();
-    scale = new Vector2(1, 1);
+    position = Vector2.zero;
+    scale = Vector2.one;
     rotation = 0;
-    pivot = new Vector2(0.5, 0.5);
+    pivot = Vector2.zero;
 
     beforeRender(renderer: Renderer): void {
         renderer.save();
@@ -29,4 +30,9 @@ class Widget extends RenderObject {
     addChild(widget: Widget): void {
         super.addChild(widget);
     }
+
+    static positionAnimator = new Vector2Animator("position", (t: Widget, v: Vector2) => t.position = v);
+    static scaleAnimator = new Vector2Animator("scale", (t: Widget, v: Vector2) => t.scale = v);
+    static pivotAnimator = new Vector2Animator("pivot", (t: Widget, v: Vector2) => t.pivot = v);
+    static rotationAnimator = new NumberAnimator("rotation", (t: Widget, v: number) => t.rotation = v);
 }
