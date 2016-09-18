@@ -37,4 +37,16 @@ class Vector2 {
     mutate(): Vector2Mutator {
         return new Vector2Mutator(this);
     }
+
+    static get zero(): Vector2 {
+         return new Vector2(0, 0);
+    }
+
+    static get half(): Vector2 {
+         return new Vector2(0.5, 0.5);
+    }
+
+    static get one(): Vector2 {
+         return new Vector2(1, 1);
+    }
 }
