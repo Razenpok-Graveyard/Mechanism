@@ -31,8 +31,8 @@ class Widget extends RenderObject {
         super.addChild(widget);
     }
 
-    static positionAnimator = new Vector2Animator("position", (t: Widget, v: Vector2) => t.position = v);
-    static scaleAnimator = new Vector2Animator("scale", (t: Widget, v: Vector2) => t.scale = v);
-    static pivotAnimator = new Vector2Animator("pivot", (t: Widget, v: Vector2) => t.pivot = v);
-    static rotationAnimator = new NumberAnimator("rotation", (t: Widget, v: number) => t.rotation = v);
+    static positionAnimator = new Vector2Animator("position");
+    static scaleAnimator = new Vector2Animator("scale");
+    static pivotAnimator = new Vector2Animator("pivot");
+    static rotationAnimator = new NumberAnimator("rotation");
 }
