@@ -1,9 +1,16 @@
-﻿class Animation {
+﻿/// <reference path="FinalAnimationAction.ts"/>
+class Animation {
     private animators: { [animatedPropertyName: string]: Animator; } = {};
     private currentFrame = 0;
+    finalAction: FinalAnimationAction;
+    frameCount: number;
 
-    run(): void {
-        this.currentFrame = 0;
+    constructor(frameCount: number) {
+        this.frameCount = frameCount;
+    }
+
+    run(frame: number = 0): void {
+        this.currentFrame = frame;
     }
 
     setAnimator(animator: Animator) {
@@ -19,5 +26,16 @@
             }
         }
         this.currentFrame = nextFrame;
+        if (this.frameCount === nextFrame)
+            return this.finalAction;
+        return undefined;
+    }
+
+    static loop(frame: number = 0): FinalAnimationAction {
+        return new FinalAnimationAction(frame);
+    }
+
+    static goto(frame: number = 0, animation: string): FinalAnimationAction {
+        return new FinalAnimationAction(frame, animation);
     }
 }

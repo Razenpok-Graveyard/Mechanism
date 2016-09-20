@@ -30,12 +30,22 @@ class RenderObject {
     afterRender(renderer: Renderer) { }
 
     update() {
-        this.currentAnimation.advance(1, this);
+        if (this.currentAnimation) {
+            const goto = this.currentAnimation.advance(1, this);
+            if (goto) {
+                if (goto.animation)
+                    this.runAnimation(goto.animation, goto.frame);
+                this.currentAnimation.run(goto.frame);
+            }
+        }
+        for (let child of this.children) {
+            child.update();
+        }
     }
 
-    runAnimation(name: string) {
+    runAnimation(name: string, frame: number = 0) {
         this.currentAnimation = this.animations.get(name);
-        this.currentAnimation.run();
+        this.currentAnimation.run(frame);
     }
 
     runChildAnimation(name: string) {

@@ -1,5 +1,5 @@
 ﻿///<reference path="RenderObject.ts"/>
-///<reference path="Animations/PropertyAnimatorFactories.ts"/>
+///<reference path="Animations/Animators.ts"/>
 class Widget extends RenderObject {
     children: Widget[] = [];
     position = Vector2.zero;
@@ -31,8 +31,8 @@ class Widget extends RenderObject {
         super.addChild(widget);
     }
 
-    static positionAnimator = new Vector2Animator("position");
-    static scaleAnimator = new Vector2Animator("scale");
-    static pivotAnimator = new Vector2Animator("pivot");
-    static rotationAnimator = new NumberAnimator("rotation");
+    static positionAnimator = () => new Vector2Animator("position");
+    static scaleAnimator = () => new Vector2Animator("scale");
+    static pivotAnimator = () => new Vector2Animator("pivot");
+    static rotationAnimator = () => new NumberAnimator("rotation");
 }

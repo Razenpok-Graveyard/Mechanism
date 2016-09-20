@@ -13,7 +13,7 @@ class Sprite extends Widget {
     }
 
     render(renderer: Renderer): void {
-        renderer.renderTexture(this.texture, this.position.x, this.position.y);
+        renderer.renderTexture(this.texture, 0, 0);
         super.render(renderer);
     }
 
@@ -24,4 +24,6 @@ class Sprite extends Widget {
     get height(): number {
         return this.texture.height;
     }
+
+    static textureAnimator = () => new GenericAnimator<Sprite, Texture>("texture");
 }

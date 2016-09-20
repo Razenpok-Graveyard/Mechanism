@@ -4,13 +4,13 @@ abstract class Animator {
 
     apply(object: RenderObject, frame: number) {
         const lastFrame = this.frames.lastOrDefault((element, index) => index <= frame);
-        if (lastFrame === undefined || lastFrame === null) return;
+        if (!lastFrame) return;
         if (lastFrame.interpolation === Interpolation.None) {
             this.applyValue(object, lastFrame.value);
             return;
         }
         const nextFrame = this.frames.firstOrDefault((element, index) => index > frame);
-        if (nextFrame === undefined || nextFrame === null) {
+        if (!nextFrame) {
             this.applyValue(object, lastFrame.value);
             return;
         }
