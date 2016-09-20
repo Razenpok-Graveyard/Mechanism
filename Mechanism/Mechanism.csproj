@@ -32,6 +32,7 @@
     <TypeScriptCompile Include="Animations\Interpolation.ts" />
     <TypeScriptCompile Include="Animations\Animators.ts" />
     <TypeScriptCompile Include="Application.ts" />
+    <TypeScriptCompile Include="AudioPlayer.ts" />
     <TypeScriptCompile Include="Color.ts" />
     <TypeScriptCompile Include="Animations\GenericAnimator.ts" />
     <TypeScriptCompile Include="Animations\KeyFrame.ts" />
