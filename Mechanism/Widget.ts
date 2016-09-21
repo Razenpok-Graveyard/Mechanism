@@ -20,12 +20,36 @@ class Widget extends RenderObject {
         renderer.restore();
     }
 
+    get x(): number {
+        return this.position.x;
+    }
+
+    set x(value: number) {
+        this.position.x = value;
+    }
+
+    get y(): number {
+        return this.position.y;
+    }
+
+    set y(value: number) {
+        this.position.y = value;
+    }
+
     get width(): number {
         return this.size.x;
     }
 
+    set width(value: number) {
+        this.size.x = value;
+    }
+
     get height(): number {
         return this.size.y;
+    }
+
+    set height(value: number) {
+        this.size.y = value;
     }
 
     addChild(widget: Widget): void {
