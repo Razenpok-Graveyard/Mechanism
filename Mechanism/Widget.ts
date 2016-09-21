@@ -6,6 +6,7 @@ class Widget extends RenderObject {
     scale = Vector2.one;
     rotation = 0;
     pivot = Vector2.zero;
+    size = new Vector2(100, 100);
 
     beforeRender(renderer: Renderer): void {
         renderer.save();
@@ -20,11 +21,11 @@ class Widget extends RenderObject {
     }
 
     get width(): number {
-        return 100;
+        return this.size.x;
     }
 
     get height(): number {
-        return 100;
+        return this.size.y;
     }
 
     addChild(widget: Widget): void {
@@ -34,5 +35,6 @@ class Widget extends RenderObject {
     static positionAnimator = () => new Vector2Animator("position");
     static scaleAnimator = () => new Vector2Animator("scale");
     static pivotAnimator = () => new Vector2Animator("pivot");
+    static sizeAnimator = () => new Vector2Animator("size");
     static rotationAnimator = () => new NumberAnimator("rotation");
 }

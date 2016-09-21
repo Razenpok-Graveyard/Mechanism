@@ -3,7 +3,7 @@
 class Sprite extends Widget {
     texture: Texture;
 
-    constructor(texture: Texture) {
+    constructor(texture: Texture = undefined) {
         super();
         this.texture = texture;
     }
@@ -13,16 +13,8 @@ class Sprite extends Widget {
     }
 
     render(renderer: Renderer): void {
-        renderer.renderTexture(this.texture, 0, 0);
+        renderer.renderTexture(this.texture, 0, 0, this.size.x, this.size.y);
         super.render(renderer);
-    }
-
-    get width(): number {
-        return this.texture.width;
-    }
-
-    get height(): number {
-        return this.texture.height;
     }
 
     static textureAnimator = () => new GenericAnimator<Sprite, Texture>("texture");

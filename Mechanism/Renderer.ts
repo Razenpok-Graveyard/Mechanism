@@ -36,8 +36,24 @@ class Renderer {
         renderObject.afterRender(this);
     }
 
-    renderTexture(texture: Texture, x: number, y: number): void {
-        this.context.drawImage(texture.source, x, y);
+    renderTexture(texture: Texture, x: number = 0, y: number = 0, width?: number, height?: number) {
+        if (texture && texture.source)
+            this.context.drawImage(texture.source, x, y, width, height);
+        else
+            this.renderUndefinedTexture(x, y, width, height);
+    }
+
+    private renderUndefinedTexture(x: number = 0, y: number = 0, width?: number, height?: number) {
+        const image = new Image();
+        image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAIAAABv85FHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAG0lEQVQI12O4yTDl////WEkGXBL///9nGAb6AKuosf7WkzVAAAAAAElFTkSuQmCC";
+        const ctx = this.context as any;
+        const smoothings = [ctx.mozImageSmoothingEnabled, ctx.webkitImageSmoothingEnabled,
+            ctx.msImageSmoothingEnabled, ctx.imageSmoothingEnabled];
+        ctx.mozImageSmoothingEnabled = ctx.webkitImageSmoothingEnabled =
+            ctx.msImageSmoothingEnabled = ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(image, x, y, width, height);
+        [ctx.mozImageSmoothingEnabled, ctx.webkitImageSmoothingEnabled,
+            ctx.msImageSmoothingEnabled, ctx.imageSmoothingEnabled] = smoothings;
     }
 
     translate(x: number, y: number) {

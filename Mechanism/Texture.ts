@@ -1,7 +1,7 @@
 class Texture {
     source: HTMLImageElement;
 
-    constructor(source: HTMLImageElement) {
+    constructor(source: HTMLImageElement = undefined) {
         this.source = source;
     }
 
