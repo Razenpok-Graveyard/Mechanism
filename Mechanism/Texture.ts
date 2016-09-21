@@ -9,6 +9,7 @@ class Texture {
         const image = new Image();
         const texture = new Texture(image);
         image.src = url;
+        image.onerror = () => { texture.source = undefined };
         return texture;
     }
 
