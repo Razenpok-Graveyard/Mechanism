@@ -7,7 +7,7 @@
 
     drawRect(color: Color, x: number, y: number, width: number, height: number): VectorGraphics {
         this.canvas.save();
-        this.canvas.fillStyle = color.toHex();
+        this.canvas.fillStyle = color.toCssHex();
         this.canvas.fillRect(x, y, width, height);
         this.canvas.restore();
         return this;

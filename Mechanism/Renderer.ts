@@ -86,7 +86,7 @@ class Renderer {
     flush(): void {
         this.context.save();
         if (this.backgroundColor) {
-            this.context.fillStyle = this.backgroundColor.toHex();
+            this.context.fillStyle = this.backgroundColor.toCssHex();
             this.context.fillRect(0, 0, this.width, this.height);
         } else {
             this.context.clearRect(0, 0, this.width, this.height);
