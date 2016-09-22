@@ -30,6 +30,12 @@ class Renderer {
         this.view.height = value;
     }
 
+    set imageSmoothing(value: boolean) {
+        const ctx = this.context as any;
+        ctx.mozImageSmoothingEnabled = ctx.webkitImageSmoothingEnabled =
+            ctx.msImageSmoothingEnabled = ctx.imageSmoothingEnabled = false;
+    }
+
     render(renderObject: RenderObject) {
         renderObject.beforeRender(this);
         renderObject.render(this);
@@ -49,8 +55,7 @@ class Renderer {
         const ctx = this.context as any;
         const smoothings = [ctx.mozImageSmoothingEnabled, ctx.webkitImageSmoothingEnabled,
             ctx.msImageSmoothingEnabled, ctx.imageSmoothingEnabled];
-        ctx.mozImageSmoothingEnabled = ctx.webkitImageSmoothingEnabled =
-            ctx.msImageSmoothingEnabled = ctx.imageSmoothingEnabled = false;
+        this.imageSmoothing = false;
         ctx.drawImage(image, x, y, width, height);
         [ctx.mozImageSmoothingEnabled, ctx.webkitImageSmoothingEnabled,
             ctx.msImageSmoothingEnabled, ctx.imageSmoothingEnabled] = smoothings;
