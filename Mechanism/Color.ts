@@ -9,6 +9,18 @@
         }
     }
 
+    get r(): number {
+        return parseInt(this.hex.substring(0, 2), 16);
+    }
+
+    get g(): number {
+        return parseInt(this.hex.substring(2, 4), 16);
+    }
+
+    get b(): number {
+        return parseInt(this.hex.substring(4, 6), 16);
+    }
+
     toHex(): string {
         return this.hex;
     }
