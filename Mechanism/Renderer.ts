@@ -42,9 +42,13 @@ class Renderer {
         renderObject.afterRender(this);
     }
 
-    renderTexture(texture: Texture, x: number = 0, y: number = 0, width?: number, height?: number) {
+    renderTexture(texture: Texture, x: number = 0, y: number = 0, width?: number, height?: number,
+        sx?: number, sy?: number, sWidth?: number, sHeight?: number) {
         if (texture && texture.source)
-            this.context.drawImage(texture.source, x, y, width, height);
+            if (arguments.length <= 5)
+                this.context.drawImage(texture.source, x, y, width, height);
+            else
+                this.context.drawImage(texture.source, sx, sy, sWidth, sHeight, x, y, width, height);
         else
             this.renderUndefinedTexture(x, y, width, height);
     }

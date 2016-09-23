@@ -14,10 +14,10 @@ class Texture {
     }
 
     get width(): number {
-        return this.source.width;
+        return this.source.naturalWidth;
     }
 
     get height(): number {
-        return this.source.height;
+        return this.source.naturalHeight;
     }
 }
