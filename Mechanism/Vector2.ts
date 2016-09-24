@@ -8,6 +8,11 @@ class Vector2 {
         this.y = y;
     }
 
+    set(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+
     add(value: Vector2 | number): Vector2 {
         return this.combine(value, (lhs, rhs) => lhs + rhs);
     }
