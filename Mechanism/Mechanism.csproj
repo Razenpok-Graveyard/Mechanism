@@ -36,9 +36,14 @@
     <TypeScriptCompile Include="Color.ts" />
     <TypeScriptCompile Include="Animations\GenericAnimator.ts" />
     <TypeScriptCompile Include="Animations\KeyFrame.ts" />
+    <TypeScriptCompile Include="Events\EventObserver.ts" />
+    <TypeScriptCompile Include="Events\IObservableEvent.ts" />
+    <TypeScriptCompile Include="Events\ObservableEvent.ts" />
     <TypeScriptCompile Include="Linq.ts" />
     <TypeScriptCompile Include="Math.ts" />
+    <TypeScriptCompile Include="NineGrid.ts" />
     <TypeScriptCompile Include="NotImplementedError.ts" />
+    <TypeScriptCompile Include="Rectangle.ts" />
     <TypeScriptCompile Include="Typings\Path2D.d.ts" />
     <TypeScriptCompile Include="RenderObject.ts" />
     <TypeScriptCompile Include="Mechanism.ts" />

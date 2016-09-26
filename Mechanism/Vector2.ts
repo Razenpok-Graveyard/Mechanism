@@ -29,11 +29,11 @@ class Vector2 {
         return this.combine(value, (lhs, rhs) => lhs / rhs);
     }
 
-    private combine(value: Vector2 | number, func: (lhs: number, rhs: number) => number): Vector2 {
+    private combine(value: Vector2 | number, fn: (lhs: number, rhs: number) => number): Vector2 {
         if (value instanceof Vector2)
-            return new Vector2(func(this.x, value.x), func(this.y, value.y));
+            return new Vector2(fn(this.x, value.x), fn(this.y, value.y));
         else
-            return new Vector2(func(this.x, value), func(this.y, value));
+            return new Vector2(fn(this.x, value), fn(this.y, value));
     }
 
     clone(): Vector2 {

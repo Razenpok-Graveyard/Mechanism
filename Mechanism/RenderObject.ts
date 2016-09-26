@@ -35,7 +35,8 @@ class RenderObject {
             if (goto) {
                 if (goto.animation)
                     this.runAnimation(goto.animation, goto.frame);
-                this.currentAnimation.run(goto.frame);
+                else
+                    this.currentAnimation.run(goto.frame);
             }
         }
         for (let child of this.children) {

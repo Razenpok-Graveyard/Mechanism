@@ -25,13 +25,13 @@ class Vector2Mutator {
         return this;
     }
 
-    private apply(value: Vector2 | number, func: (lhs: number, rhs: number) => number): void {
+    private apply(value: Vector2 | number, fn: (lhs: number, rhs: number) => number): void {
         if (value instanceof Vector2) {
-            this.origin.x = func(this.origin.x, value.x);
-            this.origin.y = func(this.origin.y, value.y);
+            this.origin.x = fn(this.origin.x, value.x);
+            this.origin.y = fn(this.origin.y, value.y);
         } else {
-            this.origin.x = func(this.origin.x, value);
-            this.origin.y = func(this.origin.y, value);
+            this.origin.x = fn(this.origin.x, value);
+            this.origin.y = fn(this.origin.y, value);
         }
     }
 }
