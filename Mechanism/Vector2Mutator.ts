@@ -1,5 +1,5 @@
 class Vector2Mutator {
-    private origin: Vector2;
+    private readonly origin: Vector2;
 
     constructor(vector: Vector2) {
         this.origin = vector;

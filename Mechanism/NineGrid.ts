@@ -2,13 +2,13 @@
 /// <reference path="Rectangle.ts"/>
 // TODO: This is pretty much Sprite with offsets (but different render) - we need to generalize them.
 class NineGrid extends Widget {
-    texture: Texture;
+    texture?: Texture;
     left = 0;
     right = 0;
     top = 0;
     bottom = 0;
 
-    constructor(texture: Texture = undefined) {
+    constructor(texture?: Texture) {
         super();
         this.texture = texture;
     }
@@ -27,12 +27,17 @@ class NineGrid extends Widget {
 
     private getParts() {
         let parts: { target: Rectangle; crop: Rectangle }[] = [];
+        let textureSize: Vector2;
+        if (this.texture)
+            textureSize = this.texture.size;
+        else
+            textureSize = this.size;
         const innerCrop = new Rectangle(
             this.left,
             this.top,
-            this.texture.width - this.right,
-            this.texture.height - this.bottom);
-        const cropMax = new Vector2(this.texture.width, this.texture.height);
+            textureSize.x - this.right,
+            textureSize.y - this.bottom);
+        const cropMax = new Vector2(textureSize.x, textureSize.y);
         const innerTarget = new Rectangle(
             this.left,
             this.top,

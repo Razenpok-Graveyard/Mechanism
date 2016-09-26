@@ -2,7 +2,7 @@
 /// <reference path="NotImplementedError.ts"/>
 class RenderObject {
     children: RenderObject[] = [];
-    parent: RenderObject;
+    parent?: RenderObject;
     animations = new AnimationCollection();
     private currentAnimation: Animation;
 
@@ -15,7 +15,7 @@ class RenderObject {
         const index = this.children.indexOf(container);
         if (index === -1) return false;
         this.children.splice(index, 1);
-        container.parent = null;
+        container.parent = undefined;
         return true;
     }
 

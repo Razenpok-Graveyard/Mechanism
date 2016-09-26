@@ -1,9 +1,9 @@
 ﻿///<reference path="Widget.ts"/>
 ///<reference path="Texture.ts"/>
 class Sprite extends Widget {
-    texture: Texture;
+    texture?: Texture;
 
-    constructor(texture: Texture = undefined) {
+    constructor(texture?: Texture) {
         super();
         this.texture = texture;
     }

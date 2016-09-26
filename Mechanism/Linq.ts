@@ -3,6 +3,7 @@
     lastOrDefault(filter?: (element: T, index: number) => boolean): T;
     first(filter?: (element: T, index: number) => boolean): T;
     firstOrDefault(filter?: (element: T, index: number) => boolean): T;
+    any(): boolean;
 }
 
 if (!Array.prototype.last) {
@@ -53,5 +54,11 @@ if (!Array.prototype.firstOrDefault) {
         } catch (e) {
             return undefined;
         }
+    };
+};
+
+if (!Array.prototype.any) {
+    Array.prototype.any = function () {
+        return this.length > 0;
     };
 };

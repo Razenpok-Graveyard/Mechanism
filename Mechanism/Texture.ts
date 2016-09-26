@@ -1,7 +1,7 @@
 class Texture {
-    source: HTMLImageElement;
+    source?: HTMLImageElement;
 
-    constructor(source: HTMLImageElement = undefined) {
+    constructor(source?: HTMLImageElement) {
         this.source = source;
     }
 
@@ -13,11 +13,15 @@ class Texture {
         return texture;
     }
 
+    get size(): Vector2 {
+        return new Vector2(this.width, this.height);
+    }
+
     get width(): number {
-        return this.source.naturalWidth;
+        return this.source ? this.source.naturalWidth : 0;
     }
 
     get height(): number {
-        return this.source.naturalHeight;
+        return this.source ? this.source.naturalHeight : 0;
     }
 }

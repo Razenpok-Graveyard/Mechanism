@@ -3,6 +3,6 @@
     message: string;
 
     constructor(message = "Not implemented") {
-        this.message = message;
+        this.message = message!;
     }
 }

@@ -1,5 +1,5 @@
 ﻿class Color {
-    private hex: string;
+    private readonly hex: string;
 
     constructor(color: number | string) {
         if (typeof color === "number") {

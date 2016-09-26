@@ -10,7 +10,7 @@ class Application {
 
     constructor(width: number = 800, height: number = 600) {
         this.view = document.createElement("div");
-        this.renderer = new Renderer(width, height);
+        this.renderer = new Renderer(width!, height!);
         this.view.appendChild(this.renderer.view);
         this.audio = new AudioPlayer();
         this.view.appendChild(this.audio.view);

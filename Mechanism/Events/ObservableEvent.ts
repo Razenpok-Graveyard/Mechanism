@@ -1,6 +1,6 @@
 ﻿/// <reference path="EventObserver.ts"/>
 class ObservableEvent<T extends Function> implements IObservableEvent<T> {
-    private observers: EventObserver<T>[];
+    private observers: EventObserver<T>[] = [];
 
     dispatch(dispatcher: (fn: T) => void) {
         for (let i = this.observers.length - 1; i >= 0; i--) {
@@ -30,6 +30,6 @@ class ObservableEvent<T extends Function> implements IObservableEvent<T> {
     }
 
     removeAll(): void {
-        this.observers = undefined;
+        this.observers = [];
     }
 }

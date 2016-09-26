@@ -1,6 +1,6 @@
 ﻿/// <reference path="FinalAnimationAction.ts"/>
 class Animation {
-    private animators: { [animatedPropertyName: string]: Animator; } = {};
+    private animators: { [animatedPropertyName: string]: Animator } = {} as any;
     private currentFrame = 0;
     finalAction: FinalAnimationAction;
     frameCount: number;
@@ -10,14 +10,14 @@ class Animation {
     }
 
     run(frame: number = 0): void {
-        this.currentFrame = frame;
+        this.currentFrame = frame!;
     }
 
     setAnimator(animator: Animator) {
-        this.animators[animator.getName()] = animator;
+        this.animators[animator.name] = animator;
     }
 
-    advance(frameCount: number, object: RenderObject) {
+    advance(frameCount: number, object: RenderObject): FinalAnimationAction | undefined {
         const nextFrame = this.currentFrame + frameCount;
         const animators = this.animators;
         for (const animatorName in animators) {
@@ -32,10 +32,10 @@ class Animation {
     }
 
     static loop(frame: number = 0): FinalAnimationAction {
-        return new FinalAnimationAction(frame);
+        return new FinalAnimationAction(frame!);
     }
 
     static goto(frame: number = 0, animation: string): FinalAnimationAction {
-        return new FinalAnimationAction(frame, animation);
+        return new FinalAnimationAction(frame!, animation);
     }
 }

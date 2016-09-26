@@ -9,16 +9,16 @@
 
     play(source: string, loop: boolean = false) {
         let audioElement: HTMLAudioElement;
-        if (this.freeAudioElements.length === 0)
+        if (!this.freeAudioElements.any())
             this.freeAudioElements = this.getFreeAudioElements();
-        if (this.freeAudioElements.length === 0) {
+        if (!this.freeAudioElements.any()) {
             audioElement = document.createElement("audio");
             this.view.appendChild(audioElement);
         } else {
-            audioElement = this.freeAudioElements.pop();
+            audioElement = this.freeAudioElements.pop()!;
         }
         audioElement.src = source;
-        audioElement.loop = loop;
+        audioElement.loop = loop!;
         audioElement.play();
     }
 

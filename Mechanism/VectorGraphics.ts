@@ -1,5 +1,5 @@
 ﻿class VectorGraphics {
-    private canvas: CanvasRenderingContext2D;
+    private readonly canvas: CanvasRenderingContext2D;
 
     constructor(canvas: CanvasRenderingContext2D) {
         this.canvas = canvas;

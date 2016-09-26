@@ -1,8 +1,8 @@
 class FinalAnimationAction {
-    animation: string;
+    animation?: string;
     frame: number;
 
-    constructor(frame: number = 0, animation: string = undefined) {
+    constructor(frame: number, animation?: string) {
         this.animation = animation;
         this.frame = frame;
     }

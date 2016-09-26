@@ -3,17 +3,20 @@ class Renderer {
     view: HTMLCanvasElement;
     backgroundColor: Color;
     vectorGraphics: VectorGraphics;
-    private context: CanvasRenderingContext2D;
+    private readonly context: CanvasRenderingContext2D;
 
     constructor(width: number, height: number) {
         const canvas = document.createElement("canvas");
         this.view = canvas;
-        this.context = canvas.getContext("2d");
+        const context = canvas.getContext("2d");
+        // TODO
+        if (!context)
+            throw "Cannot obtain context";
+        context.font = "30px sans-serif";
+        this.context = context;
         this.width = width;
         this.height = height;
         this.vectorGraphics = new VectorGraphics(this.context);
-        // TODO
-        this.context.font = "30px sans-serif";
     }
 
     get width(): number {
@@ -44,19 +47,19 @@ class Renderer {
         renderObject.afterRender(this);
     }
 
-    renderTexture(texture: Texture, x: number = 0, y: number = 0, width?: number, height?: number,
+    renderTexture(texture?: Texture, x: number = 0, y: number = 0, width?: number, height?: number,
         sx?: number, sy?: number, sWidth?: number, sHeight?: number) {
         if (texture && texture.source)
             if (arguments.length <= 5)
-                this.context.drawImage(texture.source, x, y, width, height);
+                this.context.drawImage(texture.source, x!, y!, width, height);
             else
-                this.context.drawImage(texture.source, sx, sy, sWidth, sHeight, x, y, width, height);
+                this.context.drawImage(texture.source, sx!, sy!, sWidth, sHeight, x, y, width, height);
         else
             this.renderUndefinedTexture(x, y, width, height);
     }
 
     renderText(text: string, x: number = 0, y: number = 0) {
-        this.context.fillText(text, x, y);
+        this.context.fillText(text, x!, y!);
     }
 
     measureText(text: string) {

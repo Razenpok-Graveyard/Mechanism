@@ -1,5 +1,5 @@
 ﻿class AnimationCollection {
-    private animations: { [name: string]: Animation; } = {};
+    private animations: { [name: string]: Animation; } = {} as any;
 
     set(name: string, animation: Animation): void {
         if (this.animations.hasOwnProperty(name))

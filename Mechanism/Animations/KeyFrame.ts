@@ -5,6 +5,6 @@ class KeyFrame<T> {
 
     constructor(value: T, interpolation: Interpolation = Interpolation.None) {
         this.value = value;
-        this.interpolation = interpolation;
+        this.interpolation = interpolation!;
     }
 }
