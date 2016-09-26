@@ -12,6 +12,8 @@ class Renderer {
         this.width = width;
         this.height = height;
         this.vectorGraphics = new VectorGraphics(this.context);
+        // TODO
+        this.context.font = "30px sans-serif";
     }
 
     get width(): number {
@@ -51,6 +53,14 @@ class Renderer {
                 this.context.drawImage(texture.source, sx, sy, sWidth, sHeight, x, y, width, height);
         else
             this.renderUndefinedTexture(x, y, width, height);
+    }
+
+    renderText(text: string, x: number = 0, y: number = 0) {
+        this.context.fillText(text, x, y);
+    }
+
+    measureText(text: string) {
+        return this.context.measureText(text).width;
     }
 
     private renderUndefinedTexture(x: number = 0, y: number = 0, width?: number, height?: number) {
