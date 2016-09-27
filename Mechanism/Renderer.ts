@@ -49,6 +49,14 @@
             ctx.msImageSmoothingEnabled = ctx.imageSmoothingEnabled = false;
     }
 
+    get globalAlpha() {
+        return this.context.globalAlpha;
+    }
+
+    set globalAlpha(value: number) {
+        this.context.globalAlpha = value;
+    }
+
     render(renderObject: RenderObject) {
         renderObject.beforeRender(this);
         renderObject.render(this);

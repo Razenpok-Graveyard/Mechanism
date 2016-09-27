@@ -5,10 +5,12 @@
     rotation = 0;
     pivot = Vector2.zero;
     size = new Vector2(100, 100);
+    opacity = 1;
 
     beforeRender(renderer: Renderer): void {
         renderer.save();
         const offset = this.position.subtract(this.pivot.multiply(new Vector2(this.width, this.height)));
+        renderer.globalAlpha *= this.opacity;
         renderer.translate(offset.x, offset.y);
         renderer.rotate(this.rotation);
         renderer.scale(this.scale.x, this.scale.y);
