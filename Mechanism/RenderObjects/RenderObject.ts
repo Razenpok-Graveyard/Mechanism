@@ -54,7 +54,17 @@
         this.currentAnimation.run(frame);
     }
 
+    tryRunAnimation(name: string, frame: number = 0) {
+        const animation = this.animations.tryGet(name);
+        if (animation) {
+            this.currentAnimation = animation;
+            this.currentAnimation.run(frame);
+        }
+    }
+
     runChildAnimation(name: string) {
-        throw new Error("Not implemented");
+        for (let child of this.children) {
+            child.tryRunAnimation(name);
+        }
     }
 }
