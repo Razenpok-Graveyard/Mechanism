@@ -1,5 +1,4 @@
-﻿/// <reference path="LayoutElement.ts"/>
-class Rect extends Widget {
+﻿class Rect extends Widget {
     color: Color;
 
     constructor(color: Color) {

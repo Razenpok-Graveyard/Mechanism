@@ -1,5 +1,4 @@
-﻿/// <reference path="LayoutElement.ts"/>
-class WidgetView extends LayoutElement {
+﻿class WidgetView extends LayoutElement {
     private widget: Widget;
     private offset = new Vector2();
     backgroundColor = new Color(0xD3D3D3);

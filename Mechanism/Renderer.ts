@@ -1,5 +1,4 @@
-﻿/// <reference path="VectorGraphics.ts"/>
-class Renderer {
+﻿class Renderer {
     view: HTMLCanvasElement;
     backgroundColor: Color;
     vectorGraphics: VectorGraphics;

@@ -1,6 +1,4 @@
-﻿/// <reference path="Animations/AnimationCollection.ts"/>
-/// <reference path="NotImplementedError.ts"/>
-class RenderObject {
+﻿class RenderObject {
     children: RenderObject[] = [];
     parent?: RenderObject;
     animations = new AnimationCollection();

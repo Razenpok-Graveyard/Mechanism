@@ -1,5 +1,4 @@
-﻿/// <reference path="WaitPredicate.ts"/>
-class Task {
+﻿class Task {
     static current?: Task;
     private iterator?: Iterator<WaitPredicate>;
     private waitPredicate?: WaitPredicate;

@@ -1,5 +1,4 @@
-﻿/// <reference path="EventObserver.ts"/>
-class ObservableEvent<T extends Function> implements IObservableEvent<T> {
+﻿class ObservableEvent<T extends Function> implements IObservableEvent<T> {
     private observers: EventObserver<T>[] = [];
 
     dispatch(dispatcher: (fn: T) => void) {

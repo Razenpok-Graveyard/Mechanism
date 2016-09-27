@@ -1,7 +1,4 @@
-﻿/// <reference path="StackLayout.ts"/>
-/// <reference path="Rect.ts"/>
-/// <reference path="WidgetView.ts"/>
-class Editor extends Application {
+﻿class Editor extends Application {
     sizeChanged: boolean;
 
     constructor() {

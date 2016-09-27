@@ -1,6 +1,4 @@
-﻿///<reference path="RenderObject.ts"/>
-///<reference path="Animations/Animators.ts"/>
-class Widget extends RenderObject {
+﻿class Widget extends RenderObject {
     children: Widget[] = [];
     position = Vector2.zero;
     scale = Vector2.one;

@@ -1,7 +1,4 @@
-﻿/// <reference path="LayoutElement.ts"/>
-/// <reference path="Orientation.ts"/>
-/// <reference path="IStackElement.ts"/>
-class StackLayout extends LayoutElement {
+﻿class StackLayout extends LayoutElement {
     private orientation: Orientation;
     children: IStackElement[];
 

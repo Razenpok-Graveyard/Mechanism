@@ -1,4 +1,3 @@
-/// <reference path="Task.ts"/>
 class TaskList {
     static current?: TaskList;
     private tasks: Task[];

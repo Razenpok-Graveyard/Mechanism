@@ -1,5 +1,4 @@
-﻿/// <reference path="ILayoutable.ts"/>
-abstract class LayoutElement extends RenderObject implements ILayoutable {
+﻿abstract class LayoutElement extends RenderObject implements ILayoutable {
     protected allocatedWidth: number;
     protected allocatedHeight: number;
 

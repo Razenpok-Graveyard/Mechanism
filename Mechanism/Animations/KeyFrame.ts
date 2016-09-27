@@ -1,5 +1,4 @@
-﻿/// <reference path="Interpolation.ts"/>
-class KeyFrame<T> {
+﻿class KeyFrame<T> {
     value: T;
     interpolation: Interpolation;
 

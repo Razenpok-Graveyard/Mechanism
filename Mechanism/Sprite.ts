@@ -1,6 +1,4 @@
-﻿///<reference path="Widget.ts"/>
-///<reference path="Texture.ts"/>
-class Sprite extends Widget {
+﻿class Sprite extends Widget {
     texture?: Texture;
 
     constructor(texture?: Texture) {

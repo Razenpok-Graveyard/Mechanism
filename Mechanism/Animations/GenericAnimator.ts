@@ -1,6 +1,4 @@
-﻿/// <reference path="Animator.ts"/>
-/// <reference path="KeyFrame.ts"/>
-class GenericAnimator<TObject extends RenderObject, TValue> extends Animator {
+﻿class GenericAnimator<TObject extends RenderObject, TValue> extends Animator {
     frames: KeyFrame<TValue>[] = [];
 
     constructor(name: string) {

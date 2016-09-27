@@ -1,6 +1,4 @@
-﻿/// <reference path="Sprite.ts"/>
-/// <reference path="Rectangle.ts"/>
-// TODO: This is pretty much Sprite with offsets (but different render) - we need to generalize them.
+﻿// TODO: This is pretty much Sprite with offsets (but different render) - we need to generalize them.
 class NineGrid extends Widget {
     texture?: Texture;
     left = 0;

@@ -1,6 +1,4 @@
-﻿/// <reference path="GenericAnimator.ts"/>
-/// <reference path="../Vector2.ts"/>
-class Vector2Animator<T extends RenderObject> extends GenericAnimator<T, Vector2>{
+﻿class Vector2Animator<T extends RenderObject> extends GenericAnimator<T, Vector2>{
     interpolate(amount: number, from: Vector2, to: Vector2, interpolation: Interpolation): Vector2 {
         switch (interpolation) {
         case Interpolation.Linear:

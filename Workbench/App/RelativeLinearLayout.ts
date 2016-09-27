@@ -1,6 +1,4 @@
-﻿/// <reference path="Orientation.ts"/>
-/// <reference path="IRelativeLinearLayoutElement.ts"/>
-class RelativeLinearLayout extends Widget {
+﻿class RelativeLinearLayout extends Widget {
     private orientation: Orientation;
     private currentWidth: number;
     private currentHeight: number;

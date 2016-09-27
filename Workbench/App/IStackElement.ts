@@ -1,4 +1,3 @@
-﻿/// <reference path="ILayoutable.ts"/>
-interface IStackElement extends ILayoutable {
+﻿interface IStackElement extends ILayoutable {
     sizeRequest: number;
 }

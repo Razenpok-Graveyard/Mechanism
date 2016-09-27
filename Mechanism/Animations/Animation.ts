@@ -1,5 +1,4 @@
-﻿/// <reference path="FinalAnimationAction.ts"/>
-class Animation {
+﻿class Animation {
     private animators: { [animatedPropertyName: string]: Animator } = {} as any;
     private currentFrame = 0;
     finalAction: FinalAnimationAction;

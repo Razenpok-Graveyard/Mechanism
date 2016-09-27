@@ -1,6 +1,4 @@
-﻿/// <reference path="Renderer.ts"/>
-/// <reference path="AudioPlayer.ts"/>
-class Application {
+﻿class Application {
     view: HTMLDivElement;
     renderer: Renderer;
     root: RenderObject;

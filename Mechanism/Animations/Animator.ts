@@ -1,5 +1,4 @@
-﻿/// <reference path="Interpolation.ts"/>
-abstract class Animator {
+﻿abstract class Animator {
     frames: KeyFrame<any>[] = [];
     readonly name: string;
 
