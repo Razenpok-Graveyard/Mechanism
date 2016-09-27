@@ -18,6 +18,11 @@
         return true;
     }
 
+    removeFromParent() {
+        if (!this.parent) return;
+        this.parent.removeChild(this);
+    }
+
     render(renderer: Renderer) {
         for (let child of this.children) {
             renderer.render(child);
