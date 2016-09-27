@@ -94,4 +94,28 @@ class Task {
             this.iterators.pop()!.return!(true);
         }
     }
+
+    static *sinMotion(timePeriod: number, from: number, to: number) {
+        for (let t of this.motion(timePeriod, from, to, fraction => Math.sin(fraction * Math.HALFPI))) {
+            yield t;
+        }
+    }
+
+    static *sqrtMotion(timePeriod: number, from: number, to: number) {
+        for (let t of this.motion(timePeriod, from, to, fraction => Math.sqrt(fraction))) {
+            yield t;
+        }
+    }
+
+    static *linearMotion(timePeriod: number, from: number, to: number) {
+        for (let t of this.motion(timePeriod, from, to, fraction => fraction)) {
+            yield t;
+        }
+    }
+
+    static *motion(timePeriod: number, from: number, to: number, fn: (fraction: number) => number) {
+        for (let t = 0; t < timePeriod; t += Task.current!.delta)
+            yield Math.lerp(fn(t / timePeriod), from, to);
+        yield to;
+    }
 }
