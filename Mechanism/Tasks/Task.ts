@@ -5,6 +5,7 @@ class Task {
     private waitTime = 0;
     private waitPredicate?: WaitPredicate;
     totalTime = 0;
+    delta = 0;
 
     constructor(iterator: Iterator<any>) {
         this.iterators.push(iterator);
@@ -16,6 +17,7 @@ class Task {
 
     update(delta: number) {
         if (this.completed) return;
+        this.delta = delta;
         this.totalTime += delta;
         const savedCurrent = Task.current;
         Task.current = this;
@@ -53,19 +55,19 @@ class Task {
             this.waitTime = result;
             return;
         }
-        const iterator = result as Iterator<any>;
-        if (iterator.next) {
-            this.iterators.push(iterator);
-            // TODO: Maybe not?
-            this.update(0);
-            return;
-        }
         if (result instanceof RenderObject) {
             this.waitPredicate = Task.waitForAnimation(result);
             return;
         }
         if (result instanceof WaitPredicate) {
             this.waitPredicate = result;
+            return;
+        }
+        const iterator = result as Iterator<any>;
+        if (iterator.next) {
+            this.iterators.push(iterator);
+            // TODO: Maybe not?
+            this.update(0);
             return;
         }
         throw `Invalid result yielded ${result}`;
