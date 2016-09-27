@@ -17,20 +17,28 @@ class Application {
     }
 
     run(): void {
-        window.requestAnimationFrame((time) => this.render(time));
+        window.requestAnimationFrame((time) => this.handleAnimationFrame(time));
     }
 
-    render(time: number) {
+    private handleAnimationFrame(time: number) {
         if (!this.time)
             this.time = time;
         const delta = (time - this.time) / 1000;
         this.fps = 1 / delta;
-        this.renderer.flush();
-        if (this.root) {
-            this.root.update(delta);
-            this.renderer.render(this.root);
-        }
+        this.update(delta);
+        this.render();
         this.time = time;
-        window.requestAnimationFrame((time) => this.render(time));
+        window.requestAnimationFrame((time) => this.handleAnimationFrame(time));
+    }
+
+    render() {
+        this.renderer.flush();
+        if (this.root)
+            this.renderer.render(this.root);
+    }
+
+    update(delta: number) {
+        if (this.root)
+            this.root.update(delta);
     }
 }
