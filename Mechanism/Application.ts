@@ -23,8 +23,8 @@ class Application {
     render(time: number) {
         if (!this.time)
             this.time = time;
-        const delta = time - this.time;
-        this.fps = (1 / delta) * 1000;
+        const delta = (time - this.time) / 1000;
+        this.fps = 1 / delta;
         this.renderer.flush();
         if (this.root) {
             this.root.update(delta);
