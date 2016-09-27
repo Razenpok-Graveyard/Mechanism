@@ -27,7 +27,7 @@ class Application {
         this.fps = (1 / delta) * 1000;
         this.renderer.flush();
         if (this.root) {
-            this.root.update();
+            this.root.update(delta);
             this.renderer.render(this.root);
         }
         this.time = time;

@@ -4,6 +4,7 @@ class RenderObject {
     children: RenderObject[] = [];
     parent?: RenderObject;
     animations = new AnimationCollection();
+    tasks = new TaskList();
     private currentAnimation: Animation;
 
     addChild(container: RenderObject): void {
@@ -29,7 +30,7 @@ class RenderObject {
 
     afterRender(renderer: Renderer) { }
 
-    update() {
+    update(delta: number) {
         if (this.currentAnimation) {
             const goto = this.currentAnimation.advance(1, this);
             if (goto) {
@@ -39,8 +40,9 @@ class RenderObject {
                     this.currentAnimation.run(goto.frame);
             }
         }
+        this.tasks.update(delta);
         for (let child of this.children) {
-            child.update();
+            child.update(delta);
         }
     }
 

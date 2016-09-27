@@ -1,0 +1,30 @@
+/// <reference path="Task.ts"/>
+class TaskList {
+    static current?: TaskList;
+    private tasks: Task[];
+
+    add(task: Task | Iterator<any> | (() => Iterator<any>)) {
+        if (!this.tasks)
+            this.tasks = [];
+        if (typeof task == "function") {
+            this.tasks.push(new Task(task()));
+            return;
+        }
+        if (task instanceof Task) {
+            this.tasks.push(task);
+            return;
+        }
+        this.tasks.push(new Task(task));
+    }
+
+    update(delta: number) {
+        if (!this.tasks || this.tasks.length === 0) return;
+        const savedCurrent = TaskList.current;
+        TaskList.current = this;
+        for (const task of this.tasks) {
+            task.update(delta);
+        }
+        this.tasks = this.tasks.filter(task => !task.completed);
+        TaskList.current = savedCurrent;
+    }
+}

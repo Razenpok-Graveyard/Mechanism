@@ -46,6 +46,9 @@
     <TypeScriptCompile Include="NineGrid.ts" />
     <TypeScriptCompile Include="NotImplementedError.ts" />
     <TypeScriptCompile Include="Rectangle.ts" />
+    <TypeScriptCompile Include="Tasks\Task.ts" />
+    <TypeScriptCompile Include="Tasks\TaskList.ts" />
+    <TypeScriptCompile Include="Tasks\WaitPredicate.ts" />
     <TypeScriptCompile Include="TextAlignment.ts" />
     <TypeScriptCompile Include="Typings\Path2D.d.ts" />
     <TypeScriptCompile Include="RenderObject.ts" />
