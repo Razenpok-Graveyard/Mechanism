@@ -19,7 +19,7 @@ class Renderer {
         this.vectorGraphics = new VectorGraphics(this.context);
     }
 
-    get width(): number {
+    get width() {
         return this.view.clientWidth;
     }
 
@@ -27,12 +27,21 @@ class Renderer {
         this.view.width = value;
     }
 
-    get height(): number {
+    get height() {
         return this.view.clientHeight;
     }
 
     set height(value: number) {
         this.view.height = value;
+    }
+
+    get size() {
+        return new Vector2(this.width, this.height);
+    }
+
+    set size(value: Vector2) {
+        this.width = value.x;
+        this.height = value.y;
     }
 
     set imageSmoothing(value: boolean) {
