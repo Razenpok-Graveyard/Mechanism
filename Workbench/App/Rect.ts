@@ -1,4 +1,4 @@
-﻿class Rect extends RenderObject2D {
+﻿class Rect extends Widget {
     color: Color;
 
     constructor(color: Color) {

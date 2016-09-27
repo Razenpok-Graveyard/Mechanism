@@ -1,4 +1,4 @@
-﻿class RelativeLinearLayout extends RenderObject2D {
+﻿class RelativeLinearLayout extends Widget {
     private orientation: Orientation;
     private currentWidth: number;
     private currentHeight: number;
@@ -12,7 +12,7 @@
         const parent = this.parent;
         this.currentWidth = renderer.width;
         this.currentHeight = renderer.height;
-        if (parent && parent instanceof RenderObject2D) {
+        if (parent && parent instanceof Widget) {
             this.currentWidth = parent.width;
             this.currentHeight = parent.height;
         }
@@ -52,7 +52,7 @@
         renderer.restore();
     }
 
-    addChild(container: RenderObject2D): IRelativeLinearLayoutElement {
+    addChild(container: Widget): IRelativeLinearLayoutElement {
         super.addChild(container);
         return container as IRelativeLinearLayoutElement;
     }

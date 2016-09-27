@@ -60,7 +60,7 @@
     <TypeScriptCompile Include="Structures\Vector2.ts" />
     <TypeScriptCompile Include="Structures\Vector2Mutator.ts" />
     <TypeScriptCompile Include="VectorGraphics.ts" />
-    <TypeScriptCompile Include="RenderObjects\RenderObject2D.ts" />
+    <TypeScriptCompile Include="RenderObjects\Widget.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">

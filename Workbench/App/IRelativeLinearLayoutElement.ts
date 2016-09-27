@@ -1,3 +1,3 @@
-﻿interface IRelativeLinearLayoutElement extends RenderObject2D {
+﻿interface IRelativeLinearLayoutElement extends Widget {
     sizeFactor: number;
 }

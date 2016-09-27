@@ -1,5 +1,5 @@
 ﻿// TODO: This is pretty much Sprite with offsets (but different render) - we need to generalize them.
-class NineGrid extends RenderObject2D {
+class NineGrid extends Widget {
     texture?: Texture;
     left = 0;
     right = 0;

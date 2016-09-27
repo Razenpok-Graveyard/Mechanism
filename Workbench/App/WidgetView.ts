@@ -1,9 +1,9 @@
 ﻿class WidgetView extends LayoutElement {
-    private widget: RenderObject2D;
+    private widget: Widget;
     private offset = new Vector2();
     backgroundColor = new Color(0xD3D3D3);
 
-    constructor(widget: RenderObject2D) {
+    constructor(widget: Widget) {
         super();
         this.widget = widget;
     }

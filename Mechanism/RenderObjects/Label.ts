@@ -1,4 +1,4 @@
-﻿class Label extends RenderObject2D {
+class Label extends Widget {
     text?: string;
     verticalTextAlignment = TextAlignment.Start;
     horizontalTextAlignment = TextAlignment.Start;
