@@ -3,13 +3,9 @@ class TaskList {
     static current?: TaskList;
     private tasks: Task[];
 
-    add(task: Task | Iterator<any> | (() => Iterator<any>)) {
+    add(task: Task | Iterator<WaitPredicate>) {
         if (!this.tasks)
             this.tasks = [];
-        if (typeof task == "function") {
-            this.tasks.push(new Task(task()));
-            return;
-        }
         if (task instanceof Task) {
             this.tasks.push(task);
             return;

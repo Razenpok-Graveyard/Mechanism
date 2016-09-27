@@ -48,6 +48,7 @@
     <TypeScriptCompile Include="Rectangle.ts" />
     <TypeScriptCompile Include="Tasks\Task.ts" />
     <TypeScriptCompile Include="Tasks\TaskList.ts" />
+    <TypeScriptCompile Include="Tasks\Wait.ts" />
     <TypeScriptCompile Include="Tasks\WaitPredicate.ts" />
     <TypeScriptCompile Include="TextAlignment.ts" />
     <TypeScriptCompile Include="Typings\Path2D.d.ts" />

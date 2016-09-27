@@ -1,98 +1,61 @@
 ﻿/// <reference path="WaitPredicate.ts"/>
 class Task {
     static current?: Task;
-    private iterators: Iterator<any>[] = [];
-    private waitTime = 0;
+    private iterator?: Iterator<WaitPredicate>;
     private waitPredicate?: WaitPredicate;
     totalTime = 0;
     delta = 0;
 
-    constructor(iterator: Iterator<any>) {
-        this.iterators.push(iterator);
+    constructor(iterator: Iterator<WaitPredicate>) {
+        this.iterator = iterator;
     }
 
     get completed() {
-        return this.iterators.length === 0;
+        return this.iterator === undefined;
     }
 
     update(delta: number) {
-        if (this.completed) return;
+        if (!this.iterator) return;
         this.delta = delta;
         this.totalTime += delta;
         const savedCurrent = Task.current;
         Task.current = this;
-        this.processUpdate(delta);
+        const predicate = this.waitPredicate;
+        if (predicate) {
+            predicate.totalTime += delta;
+            if (predicate instanceof TaskWaitPredicate) {
+                predicate.task.update(delta);
+            }
+            if (predicate.evaluate()) {
+                this.waitPredicate = undefined;
+            } else {
+                Task.current = savedCurrent;
+                return;
+            }
+        }
+        const next = this.iterator.next();
+        if (next.done)
+            this.iterator = undefined;
+        else
+            this.waitPredicate = next.value;
         Task.current = savedCurrent;
     }
 
-    private processUpdate(delta: number) {
-        if (this.waitTime > 0) {
-            this.waitTime -= delta;
-            return;
+    private processWaitPredicate(delta: number): boolean {
+        const predicate = this.waitPredicate;
+        if (!predicate) return false;
+        predicate.totalTime += delta;
+        if (predicate instanceof TaskWaitPredicate) {
+            predicate.task.update(delta);
         }
-        if (this.waitPredicate) {
-            this.waitPredicate.totalTime += delta;
-            if (this.waitPredicate.evaluate()) return;
+        const predicateCompleted = predicate.evaluate();
+        if (predicateCompleted)
             this.waitPredicate = undefined;
-        }
-        const next = this.currentIterator.next();
-        if (!next.done) {
-            this.handleYieldedResult(next.value);
-        } else {
-            this.iterators.pop();
-            // TODO: Maybe not?
-            if (!this.completed)
-                this.update(0);
-        }
-    }
-
-    private handleYieldedResult(result: any) {
-        if (result == null) {
-            this.waitTime = 0;
-            return;
-        }
-        if (typeof result === "number") {
-            this.waitTime = result;
-            return;
-        }
-        if (result instanceof RenderObject) {
-            this.waitPredicate = Task.waitForAnimation(result);
-            return;
-        }
-        if (result instanceof WaitPredicate) {
-            this.waitPredicate = result;
-            return;
-        }
-        const iterator = result as Iterator<any>;
-        if (iterator.next) {
-            this.iterators.push(iterator);
-            // TODO: Maybe not?
-            this.update(0);
-            return;
-        }
-        throw `Invalid result yielded ${result}`;
-    }
-
-    private get currentIterator() {
-        return this.iterators[this.iterators.length - 1];
-    }
-
-    static waitWhile(predicate: (totalTime: number) => boolean) {
-        const waitPredicate = new BooleanWaitPredicate();
-        waitPredicate.predicate = predicate;
-        return waitPredicate;
-    }
-
-    static waitForAnimation(renderObject: RenderObject) {
-        const waitPredicate = new AnimationWaitPredicate();
-        waitPredicate.renderObject = renderObject;
-        return waitPredicate;
+        return !predicateCompleted;
     }
 
     stop() {
-        while (this.iterators.length > 0) {
-            this.iterators.pop()!.return!(true);
-        }
+        this.iterator = undefined;
     }
 
     static *sinMotion(timePeriod: number, from: number, to: number) {
