@@ -1,5 +1,5 @@
-﻿class Widget extends RenderObject {
-    children: Widget[] = [];
+﻿class RenderObject2D extends RenderObject {
+    children: RenderObject2D[] = [];
     position = Vector2.zero;
     scale = Vector2.one;
     rotation = 0;
@@ -50,7 +50,7 @@
         this.size.y = value;
     }
 
-    addChild(widget: Widget): void {
+    addChild(widget: RenderObject2D): void {
         super.addChild(widget);
     }
 

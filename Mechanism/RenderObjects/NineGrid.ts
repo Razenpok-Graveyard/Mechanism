@@ -1,5 +1,5 @@
 ﻿// TODO: This is pretty much Sprite with offsets (but different render) - we need to generalize them.
-class NineGrid extends Widget {
+class NineGrid extends RenderObject2D {
     texture?: Texture;
     left = 0;
     right = 0;
@@ -17,7 +17,6 @@ class NineGrid extends Widget {
             renderer.renderTexture(this.texture,
                 part.target.left, part.target.top, part.target.width, part.target.height,
                 part.crop.left, part.crop.top, part.crop.width, part.crop.height);
-            //renderer.translate(100, 100);
         }
         renderer.restore();
         super.render(renderer);

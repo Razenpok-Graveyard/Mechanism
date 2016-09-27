@@ -50,6 +50,6 @@
     }
 
     runChildAnimation(name: string) {
-        throw new NotImplementedError();
+        throw new Error("Not implemented");
     }
 }

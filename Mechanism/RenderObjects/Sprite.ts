@@ -1,4 +1,4 @@
-﻿class Sprite extends Widget {
+﻿class Sprite extends RenderObject2D {
     texture?: Texture;
 
     constructor(texture?: Texture) {
