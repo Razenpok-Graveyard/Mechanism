@@ -9,13 +9,13 @@ class Renderer {
         const canvas = document.createElement("canvas");
         this.view = canvas;
         const context = canvas.getContext("2d");
-        // TODO
         if (!context)
             throw "Cannot obtain context";
-        context.font = "30px sans-serif";
         this.context = context;
         this.width = width;
         this.height = height;
+        // TODO
+        context.font = "30px sans-serif";
         this.vectorGraphics = new VectorGraphics(this.context);
     }
 
