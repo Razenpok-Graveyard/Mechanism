@@ -26,6 +26,8 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Input.ts" />
+    <TypeScriptCompile Include="Key.ts" />
     <TypeScriptCompile Include="RenderObjects\Animations\Animation.ts" />
     <TypeScriptCompile Include="RenderObjects\Animations\AnimationCollection.ts" />
     <TypeScriptCompile Include="RenderObjects\Animations\Animator.ts" />
