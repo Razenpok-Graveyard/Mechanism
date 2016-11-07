@@ -27,12 +27,12 @@
         super.run();
     }
 
-    render(time: number): void {
+    render(): void {
         if (this.sizeChanged) {
             this.fitRendererInClient();
             this.sizeChanged = false;
         }
-        super.render(time);
+        super.render();
     }
 
     private fitRendererInClient() {

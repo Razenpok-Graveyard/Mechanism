@@ -7,7 +7,9 @@
     }
 
     render(renderer: Renderer): void {
-        renderer.vectorGraphics.drawRect(this.color, 0, 0, 100, 100);
+        renderer.vectorGraphics
+            .fillStyle(this.color)
+            .drawRect(0, 0, 100, 100);
         super.render(renderer);
     }
 }

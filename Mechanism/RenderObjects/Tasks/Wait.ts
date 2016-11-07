@@ -6,7 +6,7 @@ class Wait {
     }
 
     static frame() {
-        return Wait.seconds(0);
+        return new FrameWaitPredicate();
     }
 
     static task(task: Iterator<WaitPredicate>) {

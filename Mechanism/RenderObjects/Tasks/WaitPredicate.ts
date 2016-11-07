@@ -22,3 +22,7 @@ class TaskWaitPredicate extends WaitPredicate {
     task: Task;
     evaluate(): boolean { return this.task.completed; }
 }
+
+class FrameWaitPredicate extends WaitPredicate {
+    evaluate(): boolean { return true; }
+}

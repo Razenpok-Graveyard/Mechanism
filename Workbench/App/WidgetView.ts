@@ -10,7 +10,9 @@
 
     render(renderer: Renderer): void {
         renderer.save();
-        renderer.vectorGraphics.drawRect(this.backgroundColor, 0, 0, this.width, this.height);
+        renderer.vectorGraphics
+            .fillStyle(this.backgroundColor)
+            .drawRect(0, 0, this.width, this.height);
         renderer.clip(0, 0, this.width, this.height);
         const center = new Vector2(this.width / 2, this.height / 2);
         renderer.translate(center.x + this.offset.x, center.y + this.offset.y);
