@@ -1,20 +1,16 @@
 ﻿class Task {
     static current?: Task;
-    private iterator?: Iterator<WaitPredicate>;
     private waitPredicate?: WaitPredicate;
+    completed: boolean;
     totalTime = 0;
     delta = 0;
 
-    constructor(iterator: Iterator<WaitPredicate>) {
-        this.iterator = iterator;
-    }
-
-    get completed() {
-        return this.iterator === undefined;
-    }
+    constructor(private readonly iterator: Iterator<WaitPredicate>) { }
 
     update(delta: number) {
-        if (!this.iterator) return;
+        if (this.completed) {
+            return;
+        }
         this.delta = delta;
         this.totalTime += delta;
         const savedCurrent = Task.current;
@@ -27,34 +23,36 @@
             }
             if (predicate.evaluate()) {
                 this.waitPredicate = undefined;
-            } else {
+            }
+            else {
                 Task.current = savedCurrent;
                 return;
             }
         }
         const next = this.iterator.next();
-        if (next.done)
-            this.iterator = undefined;
-        else
+        if (next.done) {
+            this.completed = true;
+        }
+        else {
             this.waitPredicate = next.value;
+        }
         Task.current = savedCurrent;
     }
 
     private processWaitPredicate(delta: number): boolean {
         const predicate = this.waitPredicate;
-        if (!predicate) return false;
+        if (!predicate) {
+            return false;
+        }
         predicate.totalTime += delta;
         if (predicate instanceof TaskWaitPredicate) {
             predicate.task.update(delta);
         }
         const predicateCompleted = predicate.evaluate();
-        if (predicateCompleted)
+        if (predicateCompleted) {
             this.waitPredicate = undefined;
+        }
         return !predicateCompleted;
-    }
-
-    stop() {
-        this.iterator = undefined;
     }
 
     static *sinMotion(timePeriod: number, from: number, to: number) {
@@ -76,8 +74,9 @@
     }
 
     static *motion(timePeriod: number, from: number, to: number, fn: (fraction: number) => number) {
-        for (let t = 0; t < timePeriod; t += Task.current!.delta)
+        for (let t = 0; t < timePeriod; t += Task.current!.delta) {
             yield Math.lerp(fn(t / timePeriod), from, to);
+        }
         yield to;
     }
 }

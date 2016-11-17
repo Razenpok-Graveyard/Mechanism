@@ -1,9 +1,5 @@
 ﻿class VectorGraphics {
-    private readonly canvas: CanvasRenderingContext2D;
-
-    constructor(canvas: CanvasRenderingContext2D) {
-        this.canvas = canvas;
-    }
+    constructor(private readonly canvas: CanvasRenderingContext2D) { }
 
     fillStyle(color: Color): VectorGraphics {
         this.canvas.fillStyle = color.toCssHex();
@@ -12,8 +8,9 @@
 
     strokeStyle(lineWidth: number, color?: Color): VectorGraphics {
         this.canvas.lineWidth = lineWidth;
-        if (color)
+        if (color) {
             this.canvas.strokeStyle = color.toCssHex();
+        }
         return this;
     }
 

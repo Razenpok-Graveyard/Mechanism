@@ -1,15 +1,12 @@
 ﻿class Animation {
-    private animators: { [animatedPropertyName: string]: Animator } = {} as any;
+    private animators: { [animatedPropertyName: string]: Animator } = { };
     private currentFrame = 0;
     finalAction: FinalAnimationAction;
-    frameCount: number;
 
-    constructor(frameCount: number) {
-        this.frameCount = frameCount;
-    }
+    constructor(public frameCount: number) { }
 
     run(frame: number = 0): void {
-        this.currentFrame = frame!;
+        this.currentFrame = frame;
     }
 
     setAnimator(animator: Animator) {
@@ -25,16 +22,17 @@
             }
         }
         this.currentFrame = nextFrame;
-        if (this.frameCount === nextFrame)
+        if (this.frameCount === nextFrame) {
             return this.finalAction;
+        }
         return undefined;
     }
 
     static loop(frame: number = 0): FinalAnimationAction {
-        return new FinalAnimationAction(frame!);
+        return new FinalAnimationAction(frame);
     }
 
     static goto(frame: number = 0, animation: string): FinalAnimationAction {
-        return new FinalAnimationAction(frame!, animation);
+        return new FinalAnimationAction(frame, animation);
     }
 }

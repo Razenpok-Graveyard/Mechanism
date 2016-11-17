@@ -10,10 +10,10 @@
     }
 
     applyValue(object: TObject, value: any): void {
-        (object as any)[this.name] = value;
+         object[this.name] = value;
     }
 
     interpolate(amount: number, from: any, to: any, interpolation: Interpolation): any {
-        return from;
+         return from;
     }
 }

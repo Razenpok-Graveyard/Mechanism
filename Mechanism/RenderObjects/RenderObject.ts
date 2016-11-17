@@ -12,14 +12,18 @@
 
     removeChild(container: RenderObject): boolean {
         const index = this.children.indexOf(container);
-        if (index === -1) return false;
+        if (index === -1) {
+            return false;
+        }
         this.children.splice(index, 1);
         container.parent = undefined;
         return true;
     }
 
     removeFromParent() {
-        if (!this.parent) return;
+        if (!this.parent) {
+            return;
+        }
         this.parent.removeChild(this);
     }
 
@@ -37,10 +41,12 @@
         if (this.currentAnimation) {
             const goto = this.currentAnimation.advance(1, this);
             if (goto) {
-                if (goto.animation)
+                if (goto.animation) {
                     this.runAnimation(goto.animation, goto.frame);
-                else
+                }
+                else {
                     this.currentAnimation.run(goto.frame);
+                }
             }
         }
         this.tasks.update(delta);

@@ -1,11 +1,9 @@
 class Label extends Widget {
-    text?: string;
     verticalTextAlignment = TextAlignment.Start;
     horizontalTextAlignment = TextAlignment.Start;
 
-    constructor(text?: string) {
+    constructor(public text?: string) {
         super();
-        this.text = text;
     }
 
     render(renderer: Renderer): void {

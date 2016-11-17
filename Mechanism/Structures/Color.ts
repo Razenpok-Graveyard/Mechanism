@@ -4,34 +4,25 @@
     constructor(color: number | string) {
         if (typeof color === "number") {
             this.hex = color.toString(16);
-        } else {
+        }
+        else {
             this.hex = color;
         }
     }
 
-    get r(): number {
-        return parseInt(this.hex.substring(0, 2), 16);
-    }
+    get r(): number {return parseInt(this.hex.substring(0, 2), 16); }
 
-    get g(): number {
-        return parseInt(this.hex.substring(2, 4), 16);
-    }
+    get g(): number { return parseInt(this.hex.substring(2, 4), 16); }
 
-    get b(): number {
-        return parseInt(this.hex.substring(4, 6), 16);
-    }
+    get b(): number { return parseInt(this.hex.substring(4, 6), 16); }
 
-    toHex(): string {
-        return this.hex;
-    }
+    toHex(): string { return this.hex; }
+
+    toInt(): number { return parseInt(this.hex, 16); }
 
     toCssHex(): string {
         const hex = "000000".substr(0, 6 - this.hex.length) + this.hex;
         return `#${hex}`;
-    }
-
-    toInt(): number {
-        return parseInt(this.hex, 16);
     }
 
     static fromComponents(r: number, g: number, b: number): Color {

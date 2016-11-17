@@ -1,9 +1,5 @@
 class Vector2Mutator {
-    private readonly origin: Vector2;
-
-    constructor(vector: Vector2) {
-        this.origin = vector;
-    }
+    constructor(private readonly origin: Vector2) { }
 
     add(value: Vector2| number): Vector2Mutator {
         this.apply(value, (lhs, rhs) => lhs + rhs);
@@ -29,7 +25,8 @@ class Vector2Mutator {
         if (value instanceof Vector2) {
             this.origin.x = fn(this.origin.x, value.x);
             this.origin.y = fn(this.origin.y, value.y);
-        } else {
+        }
+        else {
             this.origin.x = fn(this.origin.x, value);
             this.origin.y = fn(this.origin.y, value);
         }

@@ -1,13 +1,10 @@
 ﻿class Sprite extends Widget {
-    texture?: Texture;
-
-    constructor(texture?: Texture) {
+    constructor(public texture?: Texture) {
         super();
-        this.texture = texture;
     }
 
     static fromImage(url: string): Sprite {
-        return new Sprite(Texture.fromImage(url));
+         return new Sprite(Texture.fromImage(url));
     }
 
     render(renderer: Renderer): void {

@@ -1,9 +1,7 @@
 class Texture {
     source?: HTMLImageElement;
 
-    constructor(source?: HTMLImageElement) {
-        this.source = source;
-    }
+    constructor(source?: HTMLImageElement) { this.source = source; }
 
     static fromImage(url: string): Texture {
         const image = new Image();
@@ -13,15 +11,9 @@ class Texture {
         return texture;
     }
 
-    get size(): Vector2 {
-        return new Vector2(this.width, this.height);
-    }
+    get size(): Vector2 { return new Vector2(this.width, this.height); }
 
-    get width(): number {
-        return this.source ? this.source.naturalWidth : 0;
-    }
+    get width(): number { return this.source ? this.source.naturalWidth : 0; }
 
-    get height(): number {
-        return this.source ? this.source.naturalHeight : 0;
-    }
+    get height(): number { return this.source ? this.source.naturalHeight : 0; }
 }

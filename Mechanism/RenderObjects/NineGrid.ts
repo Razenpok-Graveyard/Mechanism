@@ -1,14 +1,12 @@
 ﻿// TODO: This is pretty much Sprite with offsets (but different render) - we need to generalize them.
 class NineGrid extends Widget {
-    texture?: Texture;
     left = 0;
     right = 0;
     top = 0;
     bottom = 0;
 
-    constructor(texture?: Texture) {
+    constructor(public texture?: Texture) {
         super();
-        this.texture = texture;
     }
 
     render(renderer: Renderer): void {
@@ -25,10 +23,12 @@ class NineGrid extends Widget {
     private getParts() {
         let parts: { target: Rectangle; crop: Rectangle }[] = [];
         let textureSize: Vector2;
-        if (this.texture)
+        if (this.texture) {
             textureSize = this.texture.size;
-        else
+        }
+        else {
             textureSize = this.size;
+        }
         const innerCrop = new Rectangle(
             this.left,
             this.top,

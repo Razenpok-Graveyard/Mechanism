@@ -3,8 +3,9 @@ class TaskList {
     private tasks: Task[];
 
     add(task: Task | Iterator<WaitPredicate>) {
-        if (!this.tasks)
+        if (!this.tasks) {
             this.tasks = [];
+        }
         if (task instanceof Task) {
             this.tasks.push(task);
             return;
@@ -13,7 +14,9 @@ class TaskList {
     }
 
     update(delta: number) {
-        if (!this.tasks || this.tasks.length === 0) return;
+        if (!this.tasks || this.tasks.length === 0) {
+            return;
+        }
         const savedCurrent = TaskList.current;
         TaskList.current = this;
         for (const task of this.tasks) {
