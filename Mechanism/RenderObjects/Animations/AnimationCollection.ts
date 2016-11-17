@@ -15,5 +15,7 @@
         return this.animations[name];
     }
 
-    tryGet(name: string): Animation { return this.animations[name]; }
+    tryGet(name: string): Animation {
+         return this.animations[name];
+    }
 }

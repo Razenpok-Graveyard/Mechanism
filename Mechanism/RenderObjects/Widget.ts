@@ -20,23 +20,41 @@
         renderer.restore();
     }
 
-    get x(): number { return this.position.x; }
+    get x(): number {
+       return this.position.x;
+    }
 
-    set x(value: number) { this.position.x = value; }
+    set x(value: number) {
+         this.position.x = value;
+    }
 
-    get y(): number { return this.position.y; }
+    get y(): number {
+        return this.position.y;
+    }
 
-    set y(value: number) { this.position.y = value; }
+    set y(value: number) {
+        this.position.y = value;
+    }
 
-    get width(): number { return this.size.x; }
+    get width(): number {
+        return this.size.x;
+    }
 
-    set width(value: number) { this.size.x = value; }
+    set width(value: number) {
+        this.size.x = value;
+    }
 
-    get height(): number { return this.size.y; }
+    get height(): number {
+        return this.size.y;
+    }
 
-    set height(value: number) { this.size.y = value; }
+    set height(value: number) {
+        this.size.y = value;
+    }
 
-    addChild(widget: Widget): void { super.addChild(widget); }
+    addChild(widget: Widget): void {
+        super.addChild(widget);
+    }
 
     static positionAnimator = () => new Vector2Animator("position");
     static scaleAnimator = () => new Vector2Animator("scale");

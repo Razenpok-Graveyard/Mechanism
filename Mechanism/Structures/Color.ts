@@ -10,15 +10,25 @@
         }
     }
 
-    get r(): number {return parseInt(this.hex.substring(0, 2), 16); }
+    get r(): number {
+        return parseInt(this.hex.substring(0, 2), 16);
+    }
 
-    get g(): number { return parseInt(this.hex.substring(2, 4), 16); }
+    get g(): number {
+        return parseInt(this.hex.substring(2, 4), 16);
+    }
 
-    get b(): number { return parseInt(this.hex.substring(4, 6), 16); }
+    get b(): number {
+        return parseInt(this.hex.substring(4, 6), 16);
+    }
 
-    toHex(): string { return this.hex; }
+    toHex(): string {
+        return this.hex;
+    }
 
-    toInt(): number { return parseInt(this.hex, 16); }
+    toInt(): number {
+        return parseInt(this.hex, 16);
+    }
 
     toCssHex(): string {
         const hex = "000000".substr(0, 6 - this.hex.length) + this.hex;

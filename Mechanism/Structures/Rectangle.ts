@@ -15,15 +15,27 @@
         }
     }
 
-    get left(): number { return this.min.x; }
+    get left(): number {
+        return this.min.x;
+    }
 
-    get top(): number { return this.min.y; }
+    get top(): number {
+        return this.min.y;
+    }
 
-    get right(): number { return this.max.x; }
+    get right(): number {
+        return this.max.x;
+    }
 
-    get bottom(): number { return this.max.y; }
+    get bottom(): number {
+        return this.max.y;
+    }
 
-    get width(): number { return this.max.x - this.min.x; }
+    get width(): number {
+        return this.max.x - this.min.x;
+    }
 
-    get height(): number { return this.max.y - this.min.y; }
+    get height(): number {
+        return this.max.y - this.min.y;
+    }
 }

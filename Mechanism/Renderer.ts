@@ -19,15 +19,25 @@
         this.vectorGraphics = new VectorGraphics(this.context);
     }
 
-    get width() { return this.view.clientWidth; }
+    get width() {
+         return this.view.clientWidth;
+    }
 
-    set width(value: number) { this.view.width = value; }
+    set width(value: number) {
+         this.view.width = value;
+    }
 
-    get height() { return this.view.clientHeight; }
+    get height() {
+         return this.view.clientHeight;
+    }
 
-    set height(value: number) { this.view.height = value; }
+    set height(value: number) {
+         this.view.height = value;
+    }
 
-    get size() { return new Vector2(this.width, this.height); }
+    get size() {
+        return new Vector2(this.width, this.height);
+    }
 
     set size(value: Vector2) {
         this.width = value.x;
@@ -40,9 +50,13 @@
             ctx.msImageSmoothingEnabled = ctx.imageSmoothingEnabled = false;
     }
 
-    get globalAlpha() { return this.context.globalAlpha; }
+    get globalAlpha() {
+        return this.context.globalAlpha;
+    }
 
-    set globalAlpha(value: number) { this.context.globalAlpha = value; }
+    set globalAlpha(value: number) {
+        this.context.globalAlpha = value;
+    }
 
     render(renderObject: RenderObject) {
         renderObject.beforeRender(this);
