@@ -6,7 +6,7 @@
         this.renderer.backgroundColor = Color.black;
         const layout = new StackLayout(Orientation.Horizontal);
         const propertyView = this.createPropertyView();
-        layout.addChild(propertyView).sizeRequest = 100;
+        layout.addChild(propertyView).sizeRequest = 300;
         const label = new Label("Hello");
         const widgetView = new WidgetView(label);
         widgetView.backgroundColor = new Color(0xFFB6C1);
@@ -31,6 +31,7 @@
         for (let i = 0; i < 5; i++) {
             const label = new Label(`Label ${i}`);
             const widgetView = new WidgetView(label);
+            widgetView.startingPoint = Vector2.zero;
             widgetView.backgroundColor = Color.blue;
             propertyView.addChild(widgetView).sizeRequest = 50;
         }
@@ -55,6 +56,8 @@
         const height = document.body.clientHeight;
         this.renderer.width = width;
         this.renderer.height = height;
+        // BUG: After resize context gets overriden
+        this.renderer.view.getContext("2d").font = "30px sans-serif";
         const layoutable = this.root as ILayoutable;
         if (layoutable.layout != undefined)
             layoutable.layout(width, height);

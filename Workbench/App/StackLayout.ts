@@ -1,10 +1,8 @@
 ﻿class StackLayout extends LayoutElement {
-    private orientation: Orientation;
     children: IStackElement[];
 
-    constructor(orientation: Orientation) {
+    constructor(private readonly orientation: Orientation) {
         super();
-        this.orientation = orientation;
     }
 
     render(renderer: Renderer): void {
