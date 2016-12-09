@@ -3,7 +3,7 @@
     parent?: RenderObject;
     animations = new AnimationCollection();
     tasks = new TaskList();
-    private currentAnimation: Animation;
+    currentAnimation: Animation;
 
     addChild(container: RenderObject): void {
         this.children.push(container);

@@ -2,11 +2,13 @@
     private animators: { [animatedPropertyName: string]: Animator } = { };
     private currentFrame = 0;
     finalAction: FinalAnimationAction;
+    isRunning: boolean;
 
     constructor(public frameCount: number) { }
 
     run(frame: number = 0): void {
         this.currentFrame = frame;
+        this.isRunning = true;
     }
 
     setAnimator(animator: Animator) {
@@ -23,6 +25,7 @@
         }
         this.currentFrame = nextFrame;
         if (this.frameCount === nextFrame) {
+            this.isRunning = false;
             return this.finalAction;
         }
         return undefined;

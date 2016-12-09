@@ -8,7 +8,7 @@ class AnimationWaitPredicate extends WaitPredicate {
     renderObject: RenderObject;
 
     evaluate(): boolean {
-        throw new Error("Not implemented");
+        return this.renderObject.currentAnimation.isRunning;
     }
 }
 
