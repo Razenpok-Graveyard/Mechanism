@@ -19,7 +19,7 @@ class TaskList {
         }
         const savedCurrent = TaskList.current;
         TaskList.current = this;
-        for (const task of this.tasks) {
+        for (let task of this.tasks) {
             task.update(delta);
         }
         this.tasks = this.tasks.filter(task => !task.completed);

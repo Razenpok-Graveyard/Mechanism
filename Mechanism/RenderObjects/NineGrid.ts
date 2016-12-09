@@ -11,7 +11,7 @@ class NineGrid extends Widget {
 
     render(renderer: Renderer): void {
         renderer.save();
-        for (const part of this.getParts()) {
+        for (let part of this.getParts()) {
             renderer.renderTexture(this.texture,
                 part.target.left, part.target.top, part.target.width, part.target.height,
                 part.crop.left, part.crop.top, part.crop.width, part.crop.height);

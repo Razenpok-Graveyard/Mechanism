@@ -23,7 +23,7 @@
     advance(frameCount: number, object: RenderObject): FinalAnimationAction | undefined {
         const nextFrame = this.currentFrame + frameCount;
         const animators = this.animators;
-        for (const animatorName in animators) {
+        for (let animatorName in animators) {
             if (animators.hasOwnProperty(animatorName)) {
                 animators[animatorName].apply(object, nextFrame);
             }
