@@ -31,7 +31,7 @@
         this.currentFrame = nextFrame;
         if (this.frameCount === nextFrame) {
             this.isRunning = false;
-            this.animationEndedHost.dispatch(fn => {});
+            this.animationEndedHost.dispatch(fn => fn());
             return this.finalAction;
         }
         return undefined;
