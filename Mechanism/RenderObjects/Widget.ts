@@ -10,10 +10,12 @@ class Widget extends RenderObject {
 
     beforeRender(renderer: Renderer): void {
         renderer.save();
-        const offset = this.position.subtract(this.pivot.multiply(new Vector2(this.width, this.height)));
         renderer.globalAlpha *= this.opacity;
-        renderer.translate(offset.x, offset.y);
+        renderer.translate(this.position.x, this.position.y);
         renderer.rotate(this.rotation);
+        const offset = this.pivot
+            .multiply(new Vector2(this.width, this.height));
+        renderer.translate(-offset.x, -offset.y);
         renderer.scale(this.scale.x, this.scale.y);
     }
 
