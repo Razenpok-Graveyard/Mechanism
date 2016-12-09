@@ -4,6 +4,11 @@
     finalAction: FinalAnimationAction;
     isRunning: boolean;
 
+    private animationEndedHost: ObservableEventHost<() => void> = new ObservableEventHost<() => void>();
+    get animationEnded(): ObservableEvent<() => void> {
+        return this.animationEndedHost;
+    };
+
     constructor(public frameCount: number) { }
 
     run(frame: number = 0): void {
@@ -26,6 +31,7 @@
         this.currentFrame = nextFrame;
         if (this.frameCount === nextFrame) {
             this.isRunning = false;
+            this.animationEndedHost.dispatch(fn => {});
             return this.finalAction;
         }
         return undefined;

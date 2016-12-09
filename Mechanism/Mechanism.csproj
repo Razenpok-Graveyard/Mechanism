@@ -40,8 +40,8 @@
     <TypeScriptCompile Include="RenderObjects\Animations\GenericAnimator.ts" />
     <TypeScriptCompile Include="RenderObjects\Animations\KeyFrame.ts" />
     <TypeScriptCompile Include="Events\EventObserver.ts" />
-    <TypeScriptCompile Include="Events\IObservableEvent.ts" />
     <TypeScriptCompile Include="Events\ObservableEvent.ts" />
+    <TypeScriptCompile Include="Events\ObservableEventHost.ts" />
     <TypeScriptCompile Include="RenderObjects\Label.ts" />
     <TypeScriptCompile Include="Extensions\Linq.ts" />
     <TypeScriptCompile Include="Extensions\Math.ts" />
