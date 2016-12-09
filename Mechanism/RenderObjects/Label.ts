@@ -1,3 +1,4 @@
+/// <reference path="Widget.ts"/>
 class Label extends Widget {
     verticalTextAlignment = TextAlignment.Start;
     horizontalTextAlignment = TextAlignment.Start;

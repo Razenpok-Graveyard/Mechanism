@@ -1,4 +1,5 @@
-﻿class Sprite extends Widget {
+﻿/// <reference path="Widget.ts"/>
+class Sprite extends Widget {
     constructor(public texture?: Texture) {
         super();
     }

@@ -47,7 +47,6 @@
     <TypeScriptCompile Include="Extensions\Math.ts" />
     <TypeScriptCompile Include="RenderObjects\NineGrid.ts" />
     <TypeScriptCompile Include="Structures\Rectangle.ts" />
-    <TypeScriptCompile Include="_ReferenceFix.ts" />
     <TypeScriptCompile Include="RenderObjects\Tasks\Task.ts" />
     <TypeScriptCompile Include="RenderObjects\Tasks\TaskList.ts" />
     <TypeScriptCompile Include="RenderObjects\Tasks\Wait.ts" />

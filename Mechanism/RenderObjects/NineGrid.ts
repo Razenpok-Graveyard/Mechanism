@@ -1,4 +1,5 @@
-﻿// TODO: This is pretty much Sprite with offsets (but different render) - we need to generalize them.
+﻿/// <reference path="Widget.ts"/>
+// TODO: This is pretty much Sprite with offsets (but different render) - we need to generalize them.
 class NineGrid extends Widget {
     left = 0;
     right = 0;
