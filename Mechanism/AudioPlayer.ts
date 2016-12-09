@@ -14,6 +14,7 @@
         }
         if (!this.freeAudioElements.any()) {
             audioElement = document.createElement("audio");
+            this.audioElements.push(audioElement);
             this.view.appendChild(audioElement);
         }
         else {
