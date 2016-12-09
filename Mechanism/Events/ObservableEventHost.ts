@@ -35,4 +35,8 @@
     removeAll(): void {
          this.observers = [];
     }
+
+    static create<T extends Function>() {
+        return new ObservableEventHost<T>();
+    }
 }

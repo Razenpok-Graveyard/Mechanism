@@ -4,7 +4,7 @@
     finalAction: FinalAnimationAction;
     isRunning: boolean;
 
-    private animationEndedHost: ObservableEventHost<() => void> = new ObservableEventHost<() => void>();
+    private animationEndedHost = ObservableEventHost.create<() => void>();
     get animationEnded(): ObservableEvent<() => void> {
         return this.animationEndedHost;
     };
