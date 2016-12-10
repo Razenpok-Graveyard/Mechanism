@@ -38,4 +38,8 @@
     get height(): number {
         return this.max.y - this.min.y;
     }
+
+    contains(value: Vector2) {
+        return (value.x >= this.min.x) && (value.y >= this.min.y) && (value.x < this.max.x) && (value.y < this.max.y);
+    }
 }
