@@ -7,8 +7,12 @@ class Widget extends RenderObject {
     pivot = Vector2.zero;
     size = new Vector2(100, 100);
     opacity = 1;
+    visible = true;
 
     beforeRender(renderer: Renderer): void {
+        if (!this.visible) {
+            return;
+        }
         renderer.save();
         renderer.globalAlpha *= this.opacity;
         renderer.translate(this.position.x, this.position.y);
