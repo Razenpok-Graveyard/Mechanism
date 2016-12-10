@@ -20,8 +20,9 @@ class Input {
     }
 
     processPendingKeyEvents() {
-        const keyEventQueue = this.keyEventQueue.slice().reverse();
+        let keyEventQueue = this.keyEventQueue;
         this.keyEventQueue = [];
+        keyEventQueue = keyEventQueue.reverse();
         this.previousKeyState = this.currentKeyState.slice();
         while (keyEventQueue.length > 0) {
             const event = keyEventQueue.pop()!;
