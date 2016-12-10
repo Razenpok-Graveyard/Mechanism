@@ -2,7 +2,7 @@
     view: HTMLCanvasElement;
     backgroundColor: Color;
     vectorGraphics: VectorGraphics;
-    private readonly context: CanvasRenderingContext2D;
+    readonly context: CanvasRenderingContext2D;
 
     constructor(width: number, height: number) {
         const canvas = document.createElement("canvas");
