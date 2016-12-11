@@ -2,6 +2,7 @@
 class Label extends Widget {
     verticalTextAlignment = TextAlignment.Start;
     horizontalTextAlignment = TextAlignment.Start;
+    fontColor: Color;
 
     constructor(public text?: string) {
         super();
@@ -34,7 +35,7 @@ class Label extends Widget {
                 position.y = this.size.y;
                 break;
         }
-        renderer.renderText(this.text, position.x, position.y);
+        renderer.renderText(this.text, position.x, position.y, this.fontColor);
         super.render(renderer);
     }
 }
