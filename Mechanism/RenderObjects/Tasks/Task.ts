@@ -55,7 +55,7 @@
         return !predicateCompleted;
     }
 
-    static *sinMotion(timePeriod: number, from: number, to: number) {
+    static *sineMotion(timePeriod: number, from: number, to: number) {
         for (let t of this.motion(timePeriod, from, to, fraction => Math.sin(fraction * Math.HALFPI))) {
             yield t;
         }
