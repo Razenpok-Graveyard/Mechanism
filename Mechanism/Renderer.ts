@@ -79,9 +79,11 @@
         }
     }
 
-    renderText(text: string, x = 0, y = 0, color: Color) {
+    renderText(text: string, x = 0, y = 0, color?: Color) {
         this.save();
-        this.vectorGraphics.fillStyle(color);
+        if (color) {
+            this.vectorGraphics.fillStyle(color);
+        }
         this.context.fillText(text, x, y);
         this.restore();
     }
