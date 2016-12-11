@@ -69,6 +69,10 @@
                 return Key.Left;
             case "Space":
                 return Key.Space;
+            case "KeyZ":
+                return Key.Z;
+            case "KeyX":
+                return Key.X;
             default:
                 return Key.Unknown;
         }
