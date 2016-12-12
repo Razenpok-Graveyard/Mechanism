@@ -2,6 +2,10 @@ class TaskList {
     static current?: TaskList;
     private tasks: Task[];
 
+    get length() {
+        return this.tasks ? this.tasks.length : 0;
+    }
+
     add(task: Task | Iterator<WaitPredicate>) {
         if (!this.tasks) {
             this.tasks = [];
