@@ -6,7 +6,7 @@ class Vector2Mutator {
         return this;
     }
 
-    subtract(value: Vector2): Vector2Mutator {
+    subtract(value: Vector2 | number): Vector2Mutator {
         this.apply(value, (lhs, rhs) => lhs - rhs);
         return this;
     }
