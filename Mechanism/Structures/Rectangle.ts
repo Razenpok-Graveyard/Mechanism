@@ -42,4 +42,8 @@
     contains(value: Vector2) {
         return (value.x >= this.min.x) && (value.y >= this.min.y) && (value.x < this.max.x) && (value.y < this.max.y);
     }
+
+    clone() {
+        return new Rectangle(this.min.clone(), this.max.clone());
+    }
 }
