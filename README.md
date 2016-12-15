@@ -1,2 +1,2 @@
 # Mechanism
-Gane engine
+Game engine
